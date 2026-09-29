@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { MessageCircle, Phone, Menu, X } from 'lucide-react';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 
+export type NavTab = 'home' | 'inventory' | 'services' | 'repairs' | 'vin-checker' | 'inspection' | 'contact';
+
 interface NavbarProps {
-  activeTab: 'home' | 'inventory' | 'services' | 'vin-checker' | 'inspection' | 'contact';
-  setActiveTab: (tab: 'home' | 'inventory' | 'services' | 'vin-checker' | 'inspection' | 'contact') => void;
+  activeTab: NavTab;
+  setActiveTab: (tab: NavTab) => void;
   currency?: 'NGN' | 'USD';
   setCurrency?: (c: 'NGN' | 'USD') => void;
   onOpenAudit?: () => void;
@@ -16,14 +18,32 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems: { id: 'home' | 'inventory' | 'services' | 'vin-checker' | 'inspection' | 'contact'; label: string }[] = [
+  const navItems: { id: NavTab; label: string; badge?: string }[] = [
     { id: 'home', label: 'Home' },
-    { id: 'inventory', label: 'Showroom' },
-    { id: 'vin-checker', label: 'VIN Decoder' },
     { id: 'services', label: 'Services' },
+    { id: 'repairs', label: 'Videos & Pictures' },
+    { id: 'inventory', label: 'Featured Vehicles' },
+    { id: 'vin-checker', label: 'VIN Decoder' },
     { id: 'inspection', label: '200-Pt Inspection' },
     { id: 'contact', label: 'Contact' }
   ];
+
+  const handleNavClick = (tabId: typeof activeTab) => {
+    if (tabId === 'services') {
+      setActiveTab('home');
+      setMobileMenuOpen(false);
+      setTimeout(() => {
+        const el = document.getElementById('services');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 60);
+    } else {
+      setActiveTab(tabId);
+      setMobileMenuOpen(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-[#064E3B] text-white shadow-md border-b border-emerald-700/60 transition-colors">
@@ -32,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           
           {/* Zone 1: Single text element wordmark */}
           <button
-            onClick={() => setActiveTab('home')}
+            onClick={() => handleNavClick('home')}
             className="text-2xl font-extrabold tracking-tight text-white hover:text-lime-300 transition-colors cursor-pointer text-left flex items-center gap-1.5"
           >
             <span>Naiahautos</span><span className="text-lime-400">.</span>
@@ -45,12 +65,17 @@ export const Navbar: React.FC<NavbarProps> = ({
               return (
                 <button
                   key={item.id}
-                  onClick={() => setActiveTab(item.id)}
-                  className={`relative py-1.5 transition-colors hover:text-white cursor-pointer whitespace-nowrap ${
+                  onClick={() => handleNavClick(item.id)}
+                  className={`relative py-1.5 transition-colors hover:text-white cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                     isActive ? 'text-lime-300 font-bold' : 'text-emerald-100 hover:text-white'
                   }`}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span className="px-1.5 py-0.5 rounded-md bg-lime-400 text-emerald-950 text-[10px] font-black uppercase tracking-wider">
+                      {item.badge}
+                    </span>
+                  )}
                   {isActive && (
                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-lime-400 rounded-full" />
                   )}
@@ -89,15 +114,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => {
-                  setActiveTab(item.id);
-                  setMobileMenuOpen(false);
-                }}
-                className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                onClick={() => handleNavClick(item.id)}
+                className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center justify-between ${
                   activeTab === item.id ? 'bg-emerald-800 text-lime-300' : 'text-emerald-100 hover:bg-emerald-800/50'
                 }`}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {item.badge && (
+                  <span className="px-2 py-0.5 rounded-md bg-lime-400 text-emerald-950 text-[10px] font-black uppercase tracking-wider">
+                    {item.badge}
+                  </span>
+                )}
               </button>
             ))}
 

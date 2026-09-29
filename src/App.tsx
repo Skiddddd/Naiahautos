@@ -16,15 +16,28 @@ import { ServicesView } from './views/ServicesView';
 import { InspectionView } from './views/InspectionView';
 import { ContactView } from './views/ContactView';
 import { VinCheckerView } from './views/VinCheckerView';
+import { RepairsGalleryView } from './views/RepairsGalleryView';
 import { Vehicle } from './data/cars';
+import { NavTab } from './components/Navbar';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'home' | 'inventory' | 'services' | 'vin-checker' | 'inspection' | 'contact'>('home');
+  const [activeTab, setActiveTab] = useState<NavTab>('home');
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [bookingServiceType, setBookingServiceType] = useState('pre-purchase-inspection');
   const [auditModalOpen, setAuditModalOpen] = useState(false);
   const [currency, setCurrency] = useState<'NGN' | 'USD'>('NGN');
+
+  React.useEffect(() => {
+    if (activeTab === 'services') {
+      setTimeout(() => {
+        const el = document.getElementById('services');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
+    }
+  }, [activeTab]);
 
   const handleSelectVehicle = (vehicle: Vehicle) => {
     setSelectedVehicle(vehicle);
@@ -62,10 +75,11 @@ export default function App() {
 
       {/* Main Page View Content */}
       <main className="flex-1 pb-16">
-        {activeTab === 'home' && (
+        {(activeTab === 'home' || activeTab === 'services') && (
           <HomeView
             onSelectVehicle={handleSelectVehicle}
             onBookInspection={handleBookInspection}
+            onBookService={handleBookService}
             onNavigateTab={setActiveTab}
             currency={currency}
           />
@@ -76,13 +90,6 @@ export default function App() {
             onSelectVehicle={handleSelectVehicle}
             currency={currency}
             onBookInspection={handleBookInspection}
-          />
-        )}
-
-        {activeTab === 'services' && (
-          <ServicesView
-            onBookService={handleBookService}
-            currency={currency}
           />
         )}
 
@@ -97,6 +104,13 @@ export default function App() {
           <InspectionView
             onBookInspection={handleBookInspection}
             currency={currency}
+          />
+        )}
+
+        {activeTab === 'repairs' && (
+          <RepairsGalleryView
+            onBookInspection={handleBookInspection}
+            onBookService={handleBookService}
           />
         )}
 

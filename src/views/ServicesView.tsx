@@ -1,5 +1,5 @@
-import React from 'react';
-import { Shield, Check, Clock, FileText, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Shield, Check, Clock, FileText, MessageCircle, Camera } from 'lucide-react';
 import { AUTO_SERVICES_DATA } from '../data/services';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from '../components/NairaSign';
@@ -11,6 +11,25 @@ interface ServicesViewProps {
 }
 
 export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, currency }) => {
+  const [workshopPhoto, setWorkshopPhoto] = useState<string>(() => {
+    return localStorage.getItem('naiahautos_workshop_photo') || inspectionBayImg;
+  });
+
+  const handleWorkshopPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const dataUrl = event.target?.result as string;
+        if (dataUrl) {
+          setWorkshopPhoto(dataUrl);
+          localStorage.setItem('naiahautos_workshop_photo', dataUrl);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 bg-slate-50 text-slate-800">
       
@@ -48,15 +67,18 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-72 lg:h-full min-h-[300px]">
+          <div className="lg:col-span-5 relative h-72 lg:h-full min-h-[300px] group overflow-hidden">
             <img
-              src={inspectionBayImg}
+              src={workshopPhoto}
               alt="Automotive Diagnostic Bay"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = inspectionBayImg;
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#064E3B] via-transparent to-transparent hidden lg:block" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#043326] via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#064E3B] via-transparent to-transparent hidden lg:block pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#043326] via-transparent to-transparent lg:hidden pointer-events-none" />
           </div>
         </div>
       </div>

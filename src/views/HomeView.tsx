@@ -1,29 +1,176 @@
 import React from 'react';
-import { Shield, FileCheck, ArrowRight, CheckCircle2, MessageCircle, Search, Car, Sparkles, Box, ShieldCheck } from 'lucide-react';
+import { 
+  Shield, 
+  FileCheck, 
+  ArrowRight, 
+  CheckCircle2, 
+  MessageCircle, 
+  Search, 
+  Car, 
+  Sparkles, 
+  Box, 
+  ShieldCheck, 
+  Cpu, 
+  Wrench, 
+  Clock, 
+  Check, 
+  Calendar,
+  PhoneCall,
+  Camera,
+  Video
+} from 'lucide-react';
 import { VEHICLES_DATA, Vehicle, DEALERSHIP_CONFIG } from '../data/cars';
-import { AUTO_SERVICES_DATA } from '../data/services';
+import { AUTO_SERVICES_DATA, AutoService } from '../data/services';
 import { TiltCard } from '../components/TiltCard';
 import { Naira } from '../components/NairaSign';
+import { NavTab } from '../components/Navbar';
 import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
+import inspectionBayImg from '@/src/assets/images/car_inspection_bay_1790618239039.jpg';
+import founderImg from '@/src/assets/images/founder_blue_kaftan_portrait_1790682871670.jpg';
 
 interface HomeViewProps {
   onSelectVehicle: (v: Vehicle) => void;
   onBookInspection: () => void;
-  onNavigateTab: (tab: 'home' | 'inventory' | 'services' | 'vin-checker' | 'inspection' | 'contact') => void;
+  onBookService?: (serviceId: string) => void;
+  onNavigateTab: (tab: NavTab) => void;
   currency: 'NGN' | 'USD';
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({
   onSelectVehicle,
   onBookInspection,
+  onBookService,
   onNavigateTab,
   currency
 }) => {
   const featuredCars = VEHICLES_DATA.filter(c => c.featured);
+  const [founderPhoto, setFounderPhoto] = React.useState<string>(() => {
+    return localStorage.getItem('naiahautos_founder_photo') || founderImg;
+  });
+  const [workshopPhoto, setWorkshopPhoto] = React.useState<string>(() => {
+    return localStorage.getItem('naiahautos_workshop_photo') || inspectionBayImg;
+  });
+
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const dataUrl = event.target?.result as string;
+        if (dataUrl) {
+          setFounderPhoto(dataUrl);
+          localStorage.setItem('naiahautos_founder_photo', dataUrl);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleWorkshopPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const dataUrl = event.target?.result as string;
+        if (dataUrl) {
+          setWorkshopPhoto(dataUrl);
+          localStorage.setItem('naiahautos_workshop_photo', dataUrl);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="space-y-24 bg-white text-slate-800">
       
+      {/* 0. CARMEDIS-STYLE PERSONAL FOUNDER TRUST & OVERVIEW (Top of Main Page) */}
+      <section className="bg-slate-100/70 border-b border-slate-200/90 pt-4 sm:pt-6 pb-12 sm:pb-16">
+        
+        {/* Top Chat Us Bar */}
+        <div className="max-w-4xl mx-auto px-4 pb-4">
+          <div className="bg-white rounded-full p-1.5 sm:p-2 border border-slate-200 shadow-xs flex items-center justify-between sm:justify-start gap-3">
+            <a
+              href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello Naiahautos, I would like to chat with an Automotive Specialist.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2 rounded-full bg-[#1e40af] hover:bg-[#1d4ed8] text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-xs transition-all cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Chat us</span>
+            </a>
+            <span className="text-xs text-slate-500 font-medium hidden sm:inline">
+              Instant response from our Lekki Phase 1 diagnostic engineering desk
+            </span>
+          </div>
+        </div>
+
+        {/* Main Curved Card with Founder Photo & Statistics */}
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6">
+            
+            {/* Centered Founder / Lead Specialist Portrait */}
+            <div className="flex flex-col items-center">
+              <div className="relative group w-64 sm:w-72 aspect-[4/3.8] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-slate-200">
+                <img
+                  src={founderPhoto}
+                  alt="Naiahautos Founder & Automotive Engineer"
+                  className="w-full h-full object-cover object-top"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = founderImg;
+                  }}
+                />
+              </div>
+
+              {/* High-Contrast Stat Banner Directly Below Photo */}
+              <div className="w-full max-w-sm sm:max-w-md bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-md -mt-4 relative z-10 grid grid-cols-2 divide-x divide-slate-200 text-center">
+                <div className="px-2">
+                  <span className="block text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">99%</span>
+                  <span className="text-xs font-semibold text-slate-500 block mt-0.5">Happy customer</span>
+                </div>
+                <div className="px-2">
+                  <span className="block text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">502+</span>
+                  <span className="text-xs font-semibold text-slate-500 block mt-0.5">Vehicle Fixed</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Authoritative Opening Copy (Exact Carmedis Tone) */}
+            <div className="space-y-4 pt-2">
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+                At <span className="text-emerald-800">Naiahautos</span>, we provide reliable automotive repair and maintenance services for both individual car owners and corporate fleets.
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                Whether you need a comprehensive 200-point pre-purchase vehicle inspection before paying a car dealer in Lagos, a computerized engine overhaul, electrical fault diagnosis, or direct turnkey vehicle importation from US & Canada auctions, our experienced team of master diagnostic engineers has you covered.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 pt-3">
+                <a
+                  href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello Naiahautos, I would like to consult with an Automotive Specialist.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 rounded-2xl bg-[#22c55e] hover:bg-[#16a34a] text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <span>Message on WhatsApp</span>
+                </a>
+
+                <a
+                  href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`}
+                  className="px-5 py-3 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-300 text-slate-800 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer"
+                >
+                  <PhoneCall className="w-4 h-4 text-emerald-700" />
+                  <span>Call Workshop</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* 1. HERO SECTION: 3D Depth Showroom with Floating Hero Vehicle Card */}
       <section className="relative min-h-[620px] lg:min-h-[680px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#064E3B] via-[#043E2F] to-[#02281E] text-white border-b border-emerald-800 shadow-[0_12px_30px_rgba(0,0,0,0.3)]">
         {/* Background Image with Rich Emerald Vignette */}
@@ -65,20 +212,28 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
               {/* Primary 3D Action Zone */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="#services"
+                  className="py-3.5 px-6 rounded-xl flex items-center gap-2 cursor-pointer btn-3d-lime text-sm text-emerald-950 font-bold"
+                >
+                  <Wrench className="w-4 h-4 text-emerald-950" />
+                  <span>Our Services</span>
+                </a>
+
                 <button
                   onClick={() => onNavigateTab('inventory')}
-                  className="py-3.5 px-6 rounded-xl flex items-center gap-2 cursor-pointer btn-3d-lime text-sm"
+                  className="py-3.5 px-6 rounded-xl flex items-center gap-2 cursor-pointer btn-3d-emerald text-sm"
                 >
-                  <span>Browse Inventory</span>
-                  <ArrowRight className="w-4 h-4 text-emerald-950" />
+                  <span>Featured Vehicles</span>
+                  <ArrowRight className="w-4 h-4 text-lime-300" />
                 </button>
 
                 <button
                   onClick={onBookInspection}
-                  className="py-3.5 px-6 rounded-xl flex items-center gap-2 cursor-pointer btn-3d-emerald text-sm"
+                  className="py-3.5 px-6 bg-[#022c22]/80 hover:bg-[#033c2e] border border-emerald-500/40 text-emerald-100 hover:text-white font-semibold text-sm rounded-xl transition-all flex items-center gap-2 cursor-pointer shadow-[0_4px_0_#011a14,0_6px_12px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[2px]"
                 >
                   <ShieldCheck className="w-4 h-4 text-lime-300" />
-                  <span>Book 200-Pt Inspection</span>
+                  <span>Book Inspection</span>
                 </button>
 
                 <button
@@ -86,7 +241,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   className="py-3.5 px-6 bg-[#022c22]/80 hover:bg-[#033c2e] border border-emerald-500/40 text-emerald-100 hover:text-white font-semibold text-sm rounded-xl transition-all flex items-center gap-2 cursor-pointer shadow-[0_4px_0_#011a14,0_6px_12px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.15)] active:translate-y-[2px]"
                 >
                   <Search className="w-4 h-4 text-lime-300" />
-                  <span>17-Digit VIN Decoder</span>
+                  <span>VIN Decoder</span>
                 </button>
               </div>
 
@@ -208,8 +363,271 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* 2. FEATURED SHOWROOM INVENTORY */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 2. CORE SERVICES SECTION: Comprehensive Engineering Hub on Main Page */}
+      <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 space-y-12">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 border-b border-slate-200">
+          <div className="max-w-3xl space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+              <Wrench className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Specialized Engineering Hub · Lekki Phase 1, Lagos</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Automotive Engineering & Dealership Services
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Beyond automobile sales, Naiahautos is an authorized technical automotive engineering center. We protect car buyers and luxury vehicle owners across Nigeria with computerized OEM diagnostics, 200-point pre-purchase vehicle audits, direct US/Canada auction sourcing, and ceramic paint protection.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello Naiahautos, I would like to consult with an Automotive Service Advisor.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-3 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+              <span>WhatsApp Service Advisor</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Diagnostic Bay Spotlight Banner */}
+        <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-r from-[#064E3B] to-[#043326] text-white shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-7 p-8 sm:p-12 space-y-5">
+              <span className="text-xs font-bold uppercase tracking-wider text-lime-300 flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-lime-400" />
+                <span>Authorized Master Diagnostic Center</span>
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                State-of-the-Art Diagnostic Bay & Technical Workshop
+              </h3>
+              <p className="text-emerald-100/90 text-sm leading-relaxed">
+                Modern luxury vehicles are mobile supercomputers. Our Lekki facility features manufacturer-level diagnostic workstations (Mercedes-Benz Xentry, BMW ISTA, Lexus Techstream, Land Rover Pathfinder), ultrasonic paint depth gauges, engine compression testers, and heavy-duty inspection lifts.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-semibold text-emerald-100">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-lime-400 shrink-0" />
+                  <span>OEM Manufacturer Diagnostic Interfaces</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-lime-400 shrink-0" />
+                  <span>Digital Paint Depth & Chassis Alignment</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-lime-400 shrink-0" />
+                  <span>Nigeria Customs SGD Duty Verification</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-lime-400 shrink-0" />
+                  <span>Air Suspension & Transmission Calibration</span>
+                </div>
+              </div>
+
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={onBookInspection}
+                  className="px-6 py-3 bg-lime-400 hover:bg-lime-500 text-emerald-950 font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer flex items-center gap-2"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>Book Diagnostic / Inspection</span>
+                </button>
+                <div className="text-xs text-emerald-200/90 font-medium">
+                  Plot 14, Block 7, Admiralty Way, Lekki Phase 1, Lagos
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 relative h-72 lg:h-full min-h-[320px] group overflow-hidden">
+              <img
+                src={workshopPhoto}
+                alt="Naiahautos Automotive Diagnostic Bay"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = inspectionBayImg;
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#064E3B] via-transparent to-transparent hidden lg:block pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#043326] via-transparent to-transparent lg:hidden pointer-events-none" />
+            </div>
+          </div>
+        </div>
+
+        {/* All 5 Engineering Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {AUTO_SERVICES_DATA.map((service, idx) => {
+            const isFlagship = service.id === 'pre-purchase-inspection';
+            const priceFormatted = currency === 'NGN'
+              ? (service.basePriceNgn >= 100000 
+                  ? `${(service.basePriceNgn / 1000).toLocaleString()}k` 
+                  : service.basePriceNgn.toLocaleString())
+              : `$${service.basePriceUsd}`;
+
+            return (
+              <TiltCard
+                key={service.id}
+                maxTilt={6}
+                scale={1.02}
+                className={`bg-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between border transition-all duration-300 shadow-3d hover:shadow-3d-hover ${
+                  isFlagship 
+                    ? 'border-emerald-500 ring-2 ring-emerald-500/20 md:col-span-2 lg:col-span-2' 
+                    : 'border-slate-200 hover:border-emerald-400'
+                }`}
+              >
+                <div className="space-y-5" style={{ transform: 'translateZ(18px)' }}>
+                  
+                  {/* Top Bar: Icon + Badge */}
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center font-bold text-emerald-800 shadow-xs">
+                      {service.icon === 'inspection' && <Shield className="w-6 h-6 text-emerald-700" />}
+                      {service.icon === 'import' && <Car className="w-6 h-6 text-emerald-700" />}
+                      {service.icon === 'diagnostics' && <Cpu className="w-6 h-6 text-emerald-700" />}
+                      {service.icon === 'detailing' && <Sparkles className="w-6 h-6 text-emerald-700" />}
+                      {service.icon === 'parts' && <Wrench className="w-6 h-6 text-emerald-700" />}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-100/70 text-emerald-800 border border-emerald-200">
+                        {service.badge}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title & Description */}
+                  <div>
+                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                      {service.shortDesc}
+                    </p>
+                    {isFlagship && (
+                      <p className="text-xs text-slate-500 mt-2 pt-2 border-t border-slate-100 leading-relaxed hidden sm:block">
+                        {service.fullDesc}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Features Checklist */}
+                  <div className={`space-y-2 pt-2 ${isFlagship ? 'sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0' : ''}`}>
+                    {service.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Deliverable Box */}
+                  <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-3.5 space-y-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                      Guaranteed Deliverable
+                    </span>
+                    <p className="text-xs font-semibold text-slate-800 flex items-center gap-2">
+                      <FileCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>{service.deliverable}</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card Footer: Pricing & Action Buttons */}
+                <div className="pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ transform: 'translateZ(24px)' }}>
+                  <div>
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <Clock className="w-3.5 h-3.5 text-slate-400" />
+                      <span className="text-[11px] text-slate-500 font-medium">Turnaround: {service.turnaround}</span>
+                    </div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-xs text-slate-400 font-bold uppercase">Starting</span>
+                      <span className="text-xl font-black text-emerald-800 font-mono inline-flex items-center gap-0.5">
+                        {currency === 'NGN' ? (
+                          <>
+                            <Naira />
+                            <span>{priceFormatted}</span>
+                          </>
+                        ) : (
+                          <span>{priceFormatted}</span>
+                        )}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello Naiahautos, I want to inquire about: ${service.title}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl border border-emerald-200 text-emerald-700 hover:bg-emerald-50 transition-colors cursor-pointer"
+                      title="WhatsApp Advisor"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-current" />
+                    </a>
+
+                    <button
+                      onClick={() => {
+                        if (onBookService) {
+                          onBookService(service.id);
+                        } else {
+                          onBookInspection();
+                        }
+                      }}
+                      className="px-5 py-2.5 btn-3d-emerald text-xs font-bold rounded-xl cursor-pointer whitespace-nowrap"
+                    >
+                      Book Service
+                    </button>
+                  </div>
+                </div>
+              </TiltCard>
+            );
+          })}
+        </div>
+
+        {/* Engineering Trust Pillars */}
+        <div className="bg-gradient-to-br from-emerald-50/70 to-slate-50 border border-emerald-100 rounded-3xl p-6 sm:p-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
+            <div className="space-y-1.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-2 mx-auto sm:mx-0">
+                <FileCheck className="w-5 h-5 text-emerald-700" />
+              </div>
+              <h4 className="text-sm font-extrabold text-slate-900">Customs SGD Duty Guarantee</h4>
+              <p className="text-xs text-slate-600">Zero impound risk. All duty documents independently verified with NCS.</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-2 mx-auto sm:mx-0">
+                <ShieldCheck className="w-5 h-5 text-emerald-700" />
+              </div>
+              <h4 className="text-sm font-extrabold text-slate-900">100% Genuine OEM Parts</h4>
+              <p className="text-xs text-slate-600">Strictly authentic factory parts sourced directly from Germany, Japan & US.</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-2 mx-auto sm:mx-0">
+                <Car className="w-5 h-5 text-emerald-700" />
+              </div>
+              <h4 className="text-sm font-extrabold text-slate-900">Lagos-Wide Mobile Dispatch</h4>
+              <p className="text-xs text-slate-600">Our inspectors travel to any dealership, residence, or customs bonded terminal.</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-2 mx-auto sm:mx-0">
+                <Cpu className="w-5 h-5 text-emerald-700" />
+              </div>
+              <h4 className="text-sm font-extrabold text-slate-900">Certified Diagnostic Engineers</h4>
+              <p className="text-xs text-slate-600">Factory-trained technicians utilizing OEM computerized scanning equipment.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      {/* 3. FEATURED SHOWROOM INVENTORY */}
+      <section id="featured-vehicles" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">
@@ -326,131 +744,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </TiltCard>
             );
           })}
-        </div>
-      </section>
-
-      {/* 3. CORE SERVICES BENTO SECTION: Clean White / Mint Tint styling */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-emerald-50/60 to-white border border-emerald-100 rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
-          <div className="max-w-2xl mb-10 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
-              Specialized Engineering Hub
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Automotive Services Designed for Nigerian Roads
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600">
-              Beyond car sales, Naiahautos is an authorized technical automotive engineering center providing computerized diagnostics, vehicle sourcing from US/Canada auctions, and bumper-to-bumper inspections.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Service 1: Inspection with 3D Tilt */}
-            <TiltCard maxTilt={6} className="md:col-span-2 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-3d hover:shadow-3d-hover">
-              <div className="space-y-4" style={{ transform: 'translateZ(18px)' }}>
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_4px_rgba(0,0,0,0.1)]">
-                    <Shield className="w-6 h-6 text-emerald-800" />
-                  </div>
-                  <span className="text-xs text-emerald-800 font-extrabold bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-300 shadow-xs">
-                    Flagship Service
-                  </span>
-                </div>
-                <h3 className="text-xl font-extrabold text-slate-900">
-                  200-Point Pre-Purchase Car Inspection
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Before paying any car dealer in Lagos, dispatch our certified master inspector. We test unibody alignment, flood lines, engine compression, transmission shift delay, and verify Nigeria Customs duty papers against the federal database.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 text-xs text-slate-700 font-semibold">
-                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Live OBD-II Computer ECU Diagnostics</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Digital Paint Gauge (Crash/Swirl Scan)</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Undercarriage & Suspension Inspection</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Comprehensive 18-Page PDF Report</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3" style={{ transform: 'translateZ(24px)' }}>
-                <div>
-                  <span className="text-[11px] text-slate-500 block font-medium mb-0.5">Inspection Fee</span>
-                  <div className="flex items-baseline gap-1.5 whitespace-nowrap">
-                    <span className="text-xl font-black text-emerald-800 font-mono inline-flex items-center gap-0.5 leading-none">
-                      {currency === 'NGN' ? (
-                        <>
-                          <Naira />
-                          <span>45,000</span>
-                        </>
-                      ) : (
-                        <span>$30</span>
-                      )}
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500 font-sans leading-none">/ Vehicle</span>
-                  </div>
-                </div>
-                <button
-                  onClick={onBookInspection}
-                  className="px-5 py-2.5 btn-3d-emerald text-xs font-bold rounded-xl cursor-pointer whitespace-nowrap shrink-0 self-start sm:self-auto"
-                >
-                  Book Mobile Inspection
-                </button>
-              </div>
-            </TiltCard>
-
-            {/* Service 2: Importation & Clearing with 3D Tilt */}
-            <TiltCard maxTilt={6} className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-3d hover:shadow-3d-hover">
-              <div className="space-y-3" style={{ transform: 'translateZ(18px)' }}>
-                <div className="w-12 h-12 rounded-2xl bg-lime-100 text-lime-900 flex items-center justify-center font-bold shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_4px_rgba(0,0,0,0.1)]">
-                  <Car className="w-6 h-6 text-emerald-800" />
-                </div>
-                <h3 className="text-lg font-extrabold text-slate-900">
-                  Direct US & Canada Vehicle Importation
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Turnkey car sourcing from Copart, Manheim, and IAAI with sea freight to Tin Can Island / Apapa Port and genuine duty payment.
-                </p>
-                <div className="text-xs text-slate-600 space-y-2 pt-2">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                    <span>Bidding on verified dealer auctions</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                    <span>Physical US inspection before buying</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                    <span>Legitimate customs clearance docs</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between" style={{ transform: 'translateZ(24px)' }}>
-                <div className="text-xs">
-                  <span className="text-slate-500 block font-medium">Turnaround</span>
-                  <span className="text-slate-900 font-bold">5 - 7 Weeks</span>
-                </div>
-                <button
-                  onClick={() => onNavigateTab('services')}
-                  className="px-4 py-2 btn-3d-white text-xs font-bold rounded-xl cursor-pointer"
-                >
-                  Learn More
-                </button>
-              </div>
-            </TiltCard>
-
-          </div>
         </div>
       </section>
 

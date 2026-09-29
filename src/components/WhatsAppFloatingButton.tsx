@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, CheckCircle2, Clock, Shield } from 'lucide-react';
+import { MessageCircle, X, Send, CheckCircle2, Clock, Shield, PhoneCall } from 'lucide-react';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 
 interface WhatsAppFloatingButtonProps {
@@ -180,22 +180,33 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
           </div>
         )}
 
-        {/* Floating Trigger Button: pointer-events-auto */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="pointer-events-auto flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white font-semibold py-2.5 sm:py-3 px-3.5 sm:px-5 rounded-full shadow-2xl transition-all duration-200 group cursor-pointer border border-emerald-400/30"
-          aria-label={isOpen ? "Close WhatsApp Chat" : "Open WhatsApp Chat"}
-          aria-expanded={isOpen}
-        >
-          <MessageCircle className="w-5 h-5 fill-current" />
-          <span className="text-sm font-medium hidden sm:inline whitespace-nowrap">
-            Chat on WhatsApp
-          </span>
-          <span className="flex h-2.5 w-2.5 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
-          </span>
-        </button>
+        {/* Floating Quick Contact Controls: Phone Call + Message on Whatsapp Pill */}
+        <div className="pointer-events-auto flex items-center gap-2.5">
+          {/* Green Phone Call Button */}
+          <a
+            href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`}
+            className="w-12 h-12 rounded-full bg-[#22c55e] hover:bg-[#16a34a] text-white flex items-center justify-center shadow-[0_8px_20px_rgba(34,197,94,0.4)] transition-transform hover:scale-105 active:scale-95 cursor-pointer shrink-0"
+            title={`Call ${DEALERSHIP_CONFIG.phoneDisplay}`}
+            aria-label="Direct Phone Call"
+          >
+            <PhoneCall className="w-5 h-5" />
+          </a>
+
+          {/* Rounded Message on Whatsapp Pill */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center gap-2.5 bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-800 font-bold py-2 px-3.5 sm:px-4 rounded-full shadow-[0_8px_25px_rgba(0,0,0,0.15)] transition-all hover:scale-105 active:scale-95 cursor-pointer group"
+            aria-label={isOpen ? "Close WhatsApp Chat" : "Open WhatsApp Chat"}
+            aria-expanded={isOpen}
+          >
+            <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-emerald-800 whitespace-nowrap">
+              Message on Whatsapp
+            </span>
+            <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs">
+              <MessageCircle className="w-4 h-4 fill-current" />
+            </div>
+          </button>
+        </div>
       </div>
     </>
   );

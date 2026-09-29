@@ -2,9 +2,10 @@ import React from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle, ShieldCheck, ChevronRight } from 'lucide-react';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { OdometerCounter } from './OdometerCounter';
+import { NavTab } from './Navbar';
 
 interface FooterProps {
-  setActiveTab: (tab: 'home' | 'inventory' | 'services' | 'vin-checker' | 'inspection' | 'contact') => void;
+  setActiveTab: (tab: NavTab) => void;
   onOpenAudit: () => void;
 }
 
@@ -82,6 +83,15 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenAudit }) => 
                 >
                   <ChevronRight className="w-3 h-3 text-lime-400" />
                   <span>Live VIN Decoder</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => setActiveTab('repairs')}
+                  className="hover:text-lime-300 transition-colors flex items-center gap-1.5 cursor-pointer text-lime-300 font-semibold"
+                >
+                  <ChevronRight className="w-3 h-3 text-lime-400" />
+                  <span>Videos & Pictures</span>
                 </button>
               </li>
               <li>
