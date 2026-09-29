@@ -3,6 +3,7 @@ import { Shield, Check, Clock, FileText, MessageCircle } from 'lucide-react';
 import { AUTO_SERVICES_DATA } from '../data/services';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from '../components/NairaSign';
+import inspectionBayImg from '@/src/assets/images/car_inspection_bay_1790618239039.jpg';
 
 interface ServicesViewProps {
   onBookService: (serviceId: string) => void;
@@ -49,7 +50,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
 
           <div className="lg:col-span-5 relative h-72 lg:h-full min-h-[300px]">
             <img
-              src="/src/assets/images/car_inspection_bay_1790618239039.jpg"
+              src={inspectionBayImg}
               alt="Automotive Diagnostic Bay"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

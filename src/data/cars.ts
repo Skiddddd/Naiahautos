@@ -1,3 +1,7 @@
+import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
+import lexusSuvImg from '@/src/assets/images/car_lexus_suv_1790618216897.jpg';
+import mercedesSedanImg from '@/src/assets/images/car_mercedes_sedan_1790618228039.jpg';
+
 export interface Vehicle {
   id: string;
   name: string;
@@ -48,7 +52,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     condition: 'Foreign Used (Tokunbo)',
     location: 'Showroom (Lekki, Lagos)',
     inspectionScore: 98,
-    imageUrl: '/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg',
+    imageUrl: showroomHeroImg,
     keyFeatures: [
       'AMG Line Exterior Styling & 21-inch Multispoke Wheels',
       'Panoramic Sliding Glass Sunroof',
@@ -81,7 +85,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     condition: 'Foreign Used (Tokunbo)',
     location: 'Showroom (Lekki, Lagos)',
     inspectionScore: 97,
-    imageUrl: '/src/assets/images/car_lexus_suv_1790618216897.jpg',
+    imageUrl: lexusSuvImg,
     keyFeatures: [
       'F-Sport Tuned Adaptive Variable Suspension',
       'Lexus Safety System+ 2.0 with Pre-Collision Assist',
@@ -114,7 +118,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     condition: 'Foreign Used (Tokunbo)',
     location: 'Showroom (Lekki, Lagos)',
     inspectionScore: 99,
-    imageUrl: '/src/assets/images/car_mercedes_sedan_1790618228039.jpg',
+    imageUrl: mercedesSedanImg,
     keyFeatures: [
       'M-Aerodynamics Package & Shadowline Trim',
       'Live Cockpit Professional with 12.3" Navigation',
@@ -147,7 +151,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     condition: 'Foreign Used (Tokunbo)',
     location: 'Showroom (Lekki, Lagos)',
     inspectionScore: 96,
-    imageUrl: '/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg',
+    imageUrl: lexusSuvImg,
     keyFeatures: [
       'Full-Time 4WD with Torsen Limited-Slip Differential',
       '7-Passenger Seating with Power Folding Third Row',
@@ -180,7 +184,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     condition: 'Foreign Used (Tokunbo)',
     location: 'Showroom (Lekki, Lagos)',
     inspectionScore: 95,
-    imageUrl: '/src/assets/images/car_lexus_suv_1790618216897.jpg',
+    imageUrl: mercedesSedanImg,
     keyFeatures: [
       '10-Speed Shiftable Automatic Transmission',
       'Head-Up Display (HUD) with Speed & Nav',
@@ -213,7 +217,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     condition: 'Foreign Used (Tokunbo)',
     location: 'Showroom (Lekki, Lagos)',
     inspectionScore: 98,
-    imageUrl: '/src/assets/images/car_mercedes_sedan_1790618228039.jpg',
+    imageUrl: showroomHeroImg,
     keyFeatures: [
       'Electronic Air Suspension with Dynamic Response',
       'Touch Pro Duo Dual 10-Inch Touchscreens',

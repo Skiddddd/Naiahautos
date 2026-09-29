@@ -4,6 +4,7 @@ import { VEHICLES_DATA, Vehicle, DEALERSHIP_CONFIG } from '../data/cars';
 import { AUTO_SERVICES_DATA } from '../data/services';
 import { TiltCard } from '../components/TiltCard';
 import { Naira } from '../components/NairaSign';
+import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
 
 interface HomeViewProps {
   onSelectVehicle: (v: Vehicle) => void;
@@ -28,7 +29,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         {/* Background Image with Rich Emerald Vignette */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg"
+            src={showroomHeroImg}
             alt="Naiahautos Showroom"
             className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity"
             referrerPolicy="no-referrer"
@@ -128,6 +129,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       src={featuredCars[0].imageUrl}
                       alt={featuredCars[0].name}
                       className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = showroomHeroImg;
+                      }}
                     />
                     
                     {/* 3D Floating Badges (hover off the surface) */}
@@ -250,6 +254,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     alt={car.name}
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = showroomHeroImg;
+                    }}
                   />
                   {/* Floating 3D Badges */}
                   <div 

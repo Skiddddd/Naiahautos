@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Check, FileCheck, MessageCircle, MapPin, Calculator } from 'lucide-react';
 import { Vehicle, DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from './NairaSign';
+import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
 
 interface VehicleModalProps {
   vehicle: Vehicle | null;
@@ -79,6 +80,9 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                   alt={vehicle.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = showroomHeroImg;
+                  }}
                 />
                 <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md border border-slate-200 px-3 py-1 rounded-md text-xs font-bold text-emerald-800 flex items-center gap-1.5 shadow-sm">
                   <FileCheck className="w-3.5 h-3.5 text-emerald-600" />

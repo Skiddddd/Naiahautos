@@ -3,6 +3,7 @@ import { Search, FileCheck, ArrowRight, X, LayoutGrid } from 'lucide-react';
 import { VEHICLES_DATA, Vehicle } from '../data/cars';
 import { TiltCard } from '../components/TiltCard';
 import { Naira } from '../components/NairaSign';
+import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
 
 interface InventoryViewProps {
   onSelectVehicle: (v: Vehicle) => void;
@@ -189,6 +190,9 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
                     alt={car.name}
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = showroomHeroImg;
+                    }}
                   />
                   {/* Floating 3D Badges */}
                   <div 
