@@ -1,0 +1,6 @@
+{
+  "name": "Naiahautos - Automotive Dealership & Services",
+  "description": "Premium verified automobile dealership, pre-purchase vehicle inspections, direct imports, and automotive services with live visitor telemetry and WhatsApp inquiry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
