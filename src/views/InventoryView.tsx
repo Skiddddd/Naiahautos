@@ -1,6 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { Search, FileCheck, ArrowRight, X, LayoutGrid } from 'lucide-react';
 import { VEHICLES_DATA, Vehicle, showroomHeroImg } from '../data/cars';
+import { TiltCard } from '../components/TiltCard';
+import { Naira } from '../components/NairaSign';
+
 interface InventoryViewProps {
   onSelectVehicle: (v: Vehicle) => void;
   currency: 'NGN' | 'USD';
