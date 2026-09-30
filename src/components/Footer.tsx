@@ -192,12 +192,10 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
       <div className="bg-[#031f17] border-t border-emerald-900 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-emerald-300/80">
           <div>
-            © {new Date().getFullYear()} Naiahautos Limited. All Rights Reserved. RC: 1849204.
+            © {new Date().getFullYear()} Naiahautos Limited. All Rights Reserved.
           </div>
           <div className="flex items-center gap-4">
             <span>All vehicles inspected with OBD-II diagnostic protocol.</span>
-            <span>·</span>
-            <span>Cloudflare D1 Verified Telemetry</span>
           </div>
         </div>
       </div>
