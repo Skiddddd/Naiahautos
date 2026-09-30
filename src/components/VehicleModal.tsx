@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Check, FileCheck, MessageCircle, MapPin, Calculator } from 'lucide-react';
-import { Vehicle, DEALERSHIP_CONFIG } from '../data/cars';
-import { Naira } from './NairaSign';
-import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
-
+import { Vehicle, DEALERSHIP_CONFIG, showroomHeroImg } from '../data/cars';
 interface VehicleModalProps {
   vehicle: Vehicle | null;
   onClose: () => void;
