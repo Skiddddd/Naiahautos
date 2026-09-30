@@ -1,9 +1,8 @@
-import dashHarness1Img from '@/src/assets/images/harness_repair_dash1_1790693010856.jpg';
-import dashHarness2Img from '@/src/assets/images/harness_repair_dash2_1790693029543.jpg';
-import dashHarness3Img from '@/src/assets/images/harness_repair_dash3_1790693047527.jpg';
-import dashHarness4Img from '@/src/assets/images/harness_repair_dash6_1790693751348.jpg';
-import dashReinstallImg from '@/src/assets/images/dashboard_assembly_reinstall_1790693065730.jpg';
-import dashTestingImg from '@/src/assets/images/dashboard_wiring_testing_1790693098066.jpg';
+import steeringColumnImg from '@/src/assets/images/repair_steering_column_electrical.jpg';
+import aPillarImg from '@/src/assets/images/repair_a_pillar_wiring.jpg';
+import blowerClimateImg from '@/src/assets/images/repair_blower_climate.jpg';
+import steeringFuseboxImg from '@/src/assets/images/repair_steering_fusebox.jpg';
+import dashFrameworkImg from '@/src/assets/images/repair_dashboard_framework.jpg';
 
 export interface RepairMediaItem {
   id: string;
@@ -34,7 +33,7 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     category: 'electrical',
     mediaType: 'video',
     mediaUrl: '/videos/dashboard_assembly_repair.mp4',
-    thumbnailUrl: dashReinstallImg,
+    thumbnailUrl: dashFrameworkImg,
     videoDuration: '0:36',
     faultReport: 'Complete vehicle cabin electronic failure, air conditioning evaporator core leak, and dashboard harness short circuit.',
     dtcCodes: ['B1421 (Solar Sensor Circuit)', 'U0155 (Lost Comm with Instrument Panel Cluster)'],
@@ -51,8 +50,8 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     vehicle: 'Lexus RX350 / Toyota Avalon',
     category: 'electrical',
     mediaType: 'photo',
-    mediaUrl: dashHarness1Img,
-    thumbnailUrl: dashHarness1Img,
+    mediaUrl: steeringColumnImg,
+    thumbnailUrl: steeringColumnImg,
     faultReport: 'Intermittent power cut to speedometer, steering wheel controls, and climate control display.',
     dtcCodes: ['B1000 (ECU Malfunction)', 'U0100 (Lost Comm with Engine Control Module)'],
     repairPerformed: 'Stripped vehicle interior to the firewall, traced short circuit in primary cross-car harness, soldered and heat-shrink insulated damaged conductors, and tested continuity with digital multimeter.',
@@ -68,8 +67,8 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     vehicle: 'Lexus RX350 / Toyota Cabin',
     category: 'electrical',
     mediaType: 'photo',
-    mediaUrl: dashHarness2Img,
-    thumbnailUrl: dashHarness2Img,
+    mediaUrl: aPillarImg,
+    thumbnailUrl: aPillarImg,
     faultReport: 'Water seepage from sunroof drain corroded upper A-pillar wiring and curtain airbag wiring junction.',
     dtcCodes: ['B0001 (Driver Frontal Airbag Stage 1)', 'B1206 (Crash Sensor Communication)'],
     repairPerformed: 'Cleaned corrosion on body ground points, replaced sealed multi-pin connectors, waterproofed wiring path along windshield pillar.',
@@ -85,8 +84,8 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     vehicle: 'Toyota / Lexus Executive Sedan',
     category: 'electrical',
     mediaType: 'photo',
-    mediaUrl: dashHarness3Img,
-    thumbnailUrl: dashHarness3Img,
+    mediaUrl: blowerClimateImg,
+    thumbnailUrl: blowerClimateImg,
     faultReport: 'No AC airflow from dash vents, burning smell when AC turned on, and blower motor fuse blowing immediately.',
     dtcCodes: ['B1411 (Cabin Temperature Sensor Circuit)', 'B1424 (Solar Sensor Circuit Passenger)'],
     repairPerformed: 'Bench-tested AC blower fan motor, replaced shorted blower motor resistor pack, cleaned evaporator housing, and verified wire harness load.',
@@ -102,8 +101,8 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     vehicle: 'Toyota / Lexus Executive Sedan',
     category: 'electrical',
     mediaType: 'photo',
-    mediaUrl: dashHarness4Img,
-    thumbnailUrl: dashHarness4Img,
+    mediaUrl: steeringFuseboxImg,
+    thumbnailUrl: steeringFuseboxImg,
     faultReport: 'Burned wiring behind fuse box causing no-start condition and keyless entry ignition failure.',
     dtcCodes: ['B2799 (Engine Immobilizer System Malfunction)'],
     repairPerformed: 'Rebuilt fuse junction box backplate, replaced high-amperage fusible links, re-crimped terminals, and re-insulated main harness trunk.',
@@ -119,8 +118,8 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     vehicle: 'Toyota / Lexus Executive Sedan',
     category: 'electrical',
     mediaType: 'photo',
-    mediaUrl: dashReinstallImg,
-    thumbnailUrl: dashReinstallImg,
+    mediaUrl: dashFrameworkImg,
+    thumbnailUrl: dashFrameworkImg,
     faultReport: 'Rattling dashboard crossmember structure and misaligned air vent distribution channels.',
     dtcCodes: [],
     repairPerformed: 'Re-torqued tubular steel dash reinforcement beam, aligned air distribution ducting, secured anti-vibration felt dampening, and locked steering bracket.',
@@ -129,22 +128,5 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     warranty: '12 Months Workshop Guarantee',
     date: 'September 2026',
     technician: 'Master Interior & Electronics Technician'
-  },
-  {
-    id: 'rep-dash-06',
-    title: 'Instrument Panel & Interior Electronics Multi-point Testing',
-    vehicle: 'Lexus RX350 Cabin Electronics',
-    category: 'diagnostics',
-    mediaType: 'photo',
-    mediaUrl: dashTestingImg,
-    thumbnailUrl: dashTestingImg,
-    faultReport: 'Steering angle sensor out of calibration after steering column reinstall; VSC and Trac Off warning lights on cluster.',
-    dtcCodes: ['C1201 (Engine Control System Malfunction)', 'C1231 (Steering Angle Sensor Circuit)'],
-    repairPerformed: 'Zero-point calibration of yaw rate and steering angle sensors using intelligent diagnostic scanner, tested horn, clockspring, and paddle shifters.',
-    partsReplaced: ['Genuine Spiral Cable Clockspring'],
-    turnaroundTime: '4 Hours',
-    warranty: 'Certified Calibrated Warranty',
-    date: 'September 2026',
-    technician: 'Lead Diagnostics Engineer'
   }
 ];
