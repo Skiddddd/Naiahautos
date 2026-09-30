@@ -1,6 +1,6 @@
-import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
-import lexusSuvImg from '@/src/assets/images/car_lexus_suv_1790618216897.jpg';
-import mercedesSedanImg from '@/src/assets/images/car_mercedes_sedan_1790618228039.jpg';
+export const showroomHeroImg = 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1600&q=85';
+export const lexusSuvImg = 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85';
+export const mercedesSedanImg = 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=85';
 
 export interface Vehicle {
   id: string;
