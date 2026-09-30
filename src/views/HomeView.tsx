@@ -17,12 +17,7 @@ import {
   Calendar,
   PhoneCall
 } from 'lucide-react';
-import { VEHICLES_DATA, Vehicle, DEALERSHIP_CONFIG } from '../data/cars';
-import { AUTO_SERVICES_DATA, AutoService } from '../data/services';
-import { TiltCard } from '../components/TiltCard';
-import { Naira } from '../components/NairaSign';
-import { NavTab } from '../components/Navbar';
-import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
+import { VEHICLES_DATA, Vehicle, DEALERSHIP_CONFIG, showroomHeroImg } from '../data/cars';
 import workshopBayDefaultImg from '@/src/assets/images/repair_dashboard_framework.jpg';
 import defaultLeadTechImg from '@/src/assets/images/repair_steering_column_electrical.jpg';
 import founderPortraitImg from '@/src/assets/images/founder_portrait.jpg';
