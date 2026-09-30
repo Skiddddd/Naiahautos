@@ -4,7 +4,6 @@ import {
   FileCheck,
   ArrowRight,
   CheckCircle2,
-  MessageCircle,
   Search,
   Car,
   Sparkles,
@@ -15,9 +14,14 @@ import {
   Clock,
   Check,
   Calendar,
-  PhoneCall
+  PhoneCall,
+  MessageCircle
 } from 'lucide-react';
 import { VEHICLES_DATA, Vehicle, DEALERSHIP_CONFIG, showroomHeroImg } from '../data/cars';
+import { AUTO_SERVICES_DATA, AutoService } from '../data/services';
+import { TiltCard } from '../components/TiltCard';
+import { Naira } from '../components/NairaSign';
+import { NavTab } from '../components/Navbar';
 import workshopBayDefaultImg from '@/src/assets/images/repair_dashboard_framework.jpg';
 import defaultLeadTechImg from '@/src/assets/images/repair_steering_column_electrical.jpg';
 import founderPortraitImg from '@/src/assets/images/founder_portrait.jpg';
@@ -68,7 +72,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <span>Chat us</span>
             </a>
             <span className="text-xs text-slate-500 font-medium hidden sm:inline">
-              Instant response from our Lekki Phase 1 diagnostic engineering desk
+              Instant response from our Lekki/ Ikeja/ Benin diagnostic engineering desk
             </span>
           </div>
         </div>
@@ -163,7 +167,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {/* 3D Floating Location Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#02281E]/90 border border-emerald-500/40 text-xs font-bold uppercase tracking-wider text-lime-300 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.2)]">
                 <span className="w-2 h-2 rounded-full bg-lime-400 animate-pulse shadow-[0_0_8px_#a3e635]" />
-                <span>Lekki Phase 1, Lagos</span>
+                <span>Lekki / Ikeja / Benin</span>
                 <span className="text-emerald-500">|</span>
                 <span>100% NCS Customs Duty Verified</span>
               </div>
