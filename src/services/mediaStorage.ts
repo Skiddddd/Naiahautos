@@ -177,3 +177,26 @@ function getLocalStorageFallback(): RepairMediaItem[] | null {
   }
   return null;
 }
+
+// Removes photos that were picked with the old on-page photo picker, so the
+// pictures set in the code are the ones every visitor (and the owner) sees.
+export async function clearLegacyPhotoSettings(): Promise<void> {
+  const keys = ['naiahautos_founder_photo_v2', 'naiahautos_workshop_photo_v2'];
+  try {
+    const db = await openDatabase();
+    await new Promise<void>((resolve) => {
+      const tx = db.transaction(STORE_NAME, 'readwrite');
+      const store = tx.objectStore(STORE_NAME);
+      keys.forEach((k) => store.delete(`setting_${k}`));
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => resolve();
+    });
+  } catch (e) {
+    // ignore
+  }
+  try {
+    keys.forEach((k) => localStorage.removeItem(k));
+  } catch (e) {
+    // ignore
+  }
+}
