@@ -28,8 +28,8 @@ import { TiltCard } from '../components/TiltCard';
 import { Naira } from '../components/NairaSign';
 import { NavTab } from '../components/Navbar';
 import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
-import workshopBayDefaultImg from '@/src/assets/images/dashboard_assembly_reinstall_1790693065730.jpg';
-import defaultLeadTechImg from '@/src/assets/images/harness_repair_dash1_1790693010856.jpg';
+import workshopBayDefaultImg from '@/src/assets/images/repair_dashboard_framework.jpg';
+import defaultLeadTechImg from '@/src/assets/images/repair_steering_column_electrical.jpg';
 import { INITIAL_REPAIRS_DATA, RepairMediaItem } from '../data/repairs';
 import { 
   getStoredRepairs, 
@@ -106,7 +106,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           setFounderPhoto(photos[0].url);
         }
         if (!customWorkshop && photos.length > 0) {
-          const bayPhoto = photos.find(p => p.url.includes('dashboard_assembly_reinstall')) || photos[0];
+          const bayPhoto = photos.find(p => p.url.includes('repair_dashboard_framework')) || photos[0];
           setWorkshopPhoto(bayPhoto.url);
         }
       } catch (e) {

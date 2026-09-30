@@ -3,7 +3,7 @@ import { Shield, Check, Clock, FileText, MessageCircle, Camera, Upload, X, Image
 import { AUTO_SERVICES_DATA } from '../data/services';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from '../components/NairaSign';
-import workshopBayDefaultImg from '@/src/assets/images/dashboard_assembly_reinstall_1790693065730.jpg';
+import workshopBayDefaultImg from '@/src/assets/images/repair_dashboard_framework.jpg';
 import { INITIAL_REPAIRS_DATA, RepairMediaItem } from '../data/repairs';
 import { 
   getStoredRepairs, 
@@ -44,7 +44,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
         setAvailableGalleryPhotos(photos);
 
         if (!customWorkshop && photos.length > 0) {
-          const bayPhoto = photos.find(p => p.url.includes('dashboard_assembly_reinstall')) || photos[0];
+          const bayPhoto = photos.find(p => p.url.includes('repair_dashboard_framework')) || photos[0];
           setWorkshopPhoto(bayPhoto.url);
         }
       } catch (e) {

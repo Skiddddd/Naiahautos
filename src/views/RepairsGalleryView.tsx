@@ -32,7 +32,7 @@ interface RepairsGalleryViewProps {
   onBookService?: (serviceId: string) => void;
 }
 
-const VERSION_KEY = 'naiahautos_gallery_version_v7';
+const VERSION_KEY = 'naiahautos_gallery_version_v8';
 
 function extractYouTubeId(url: string): string | null {
   if (!url) return null;
@@ -733,12 +733,11 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-44 overflow-y-auto pr-1">
                     {[
                       { name: 'Dashboard HVAC & Wire Harness (Video)', url: '/videos/dashboard_assembly_repair.mp4', type: 'video' },
-                      { name: 'Wiring Harness & Steering Column (Photo)', url: '/src/assets/images/harness_repair_dash1_1790693010856.jpg', type: 'photo' },
-                      { name: 'A-Pillar Windshield Loom (Photo)', url: '/src/assets/images/harness_repair_dash2_1790693029543.jpg', type: 'photo' },
-                      { name: 'Blower Motor & Evaporator (Photo)', url: '/src/assets/images/harness_repair_dash3_1790693047527.jpg', type: 'photo' },
-                      { name: 'Fuse Box & Steering Column (Photo)', url: '/src/assets/images/harness_repair_dash6_1790693751348.jpg', type: 'photo' },
-                      { name: 'Dashboard Metal Framework (Photo)', url: '/src/assets/images/dashboard_assembly_reinstall_1790693065730.jpg', type: 'photo' },
-                      { name: 'Cluster Electronics Testing (Photo)', url: '/src/assets/images/dashboard_wiring_testing_1790693098066.jpg', type: 'photo' },
+                      { name: 'Steering Column Wiring (Photo)', url: '/src/assets/images/repair_steering_column_electrical.jpg', type: 'photo' },
+                      { name: 'A-Pillar Windshield Loom (Photo)', url: '/src/assets/images/repair_a_pillar_wiring.jpg', type: 'photo' },
+                      { name: 'Blower Motor & Climate (Photo)', url: '/src/assets/images/repair_blower_climate.jpg', type: 'photo' },
+                      { name: 'Fuse Box & Steering Column (Photo)', url: '/src/assets/images/repair_steering_fusebox.jpg', type: 'photo' },
+                      { name: 'Dashboard Metal Framework (Photo)', url: '/src/assets/images/repair_dashboard_framework.jpg', type: 'photo' },
                     ].map((preset) => (
                       <button
                         key={preset.url}
