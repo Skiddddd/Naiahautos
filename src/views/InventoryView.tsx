@@ -1,10 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Search, FileCheck, ArrowRight, X, LayoutGrid } from 'lucide-react';
-import { VEHICLES_DATA, Vehicle } from '../data/cars';
-import { TiltCard } from '../components/TiltCard';
-import { Naira } from '../components/NairaSign';
-import showroomHeroImg from '@/src/assets/images/hero_naiahautos_showroom_1790618206795.jpg';
-
+import { VEHICLES_DATA, Vehicle, showroomHeroImg } from '../data/cars';
 interface InventoryViewProps {
   onSelectVehicle: (v: Vehicle) => void;
   currency: 'NGN' | 'USD';
