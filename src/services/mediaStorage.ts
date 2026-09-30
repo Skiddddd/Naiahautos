@@ -4,6 +4,13 @@ const DB_NAME = 'naiahautos_media_database';
 const DB_VERSION = 1;
 const STORE_NAME = 'repairs_media_store';
 const KEY_NAME = 'gallery_repairs_items';
+// Bump this whenever the built-in gallery photos/videos change, so browsers that
+// saved an older copy pick up the new default media.
+const DATA_VERSION = 'naiahautos_gallery_version_v8';
+
+function isCurrentVersion(): boolean {
+  try { return localStorage.getItem(DATA_VERSION) === 'applied'; } catch { return true; }
+}
 
 function openDatabase(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
@@ -47,6 +54,7 @@ export async function checkIsPersisted(): Promise<boolean> {
 }
 
 export async function getStoredRepairs(): Promise<RepairMediaItem[] | null> {
+  if (!isCurrentVersion()) return null;
   try {
     const db = await openDatabase();
     return new Promise((resolve) => {
@@ -70,6 +78,7 @@ export async function getStoredRepairs(): Promise<RepairMediaItem[] | null> {
 }
 
 export async function saveStoredRepairs(items: RepairMediaItem[]): Promise<void> {
+  try { localStorage.setItem(DATA_VERSION, 'applied'); } catch (e) { /* ignore */ }
   try {
     const db = await openDatabase();
     await new Promise<void>((resolve, reject) => {
