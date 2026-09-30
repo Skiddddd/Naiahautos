@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Shield, Check, Clock, FileText, MessageCircle, Camera, Upload, X, Image as ImageIcon } from 'lucide-react';
+import React, { useEffect } from 'react';
+import {
+  Check,
+  Clock,
+  FileText,
+  MessageCircle
+} from 'lucide-react';
 import { AUTO_SERVICES_DATA } from '../data/services';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from '../components/NairaSign';
 import workshopBayDefaultImg from '@/src/assets/images/repair_dashboard_framework.jpg';
-import { INITIAL_REPAIRS_DATA, RepairMediaItem } from '../data/repairs';
-import { 
-  getStoredRepairs, 
-  saveCustomSetting, 
-  getCustomSetting, 
-  requestPersistentStorage 
-} from '../services/mediaStorage';
+import { clearLegacyPhotoSettings } from '../services/mediaStorage';
 
 interface ServicesViewProps {
   onBookService: (serviceId: string) => void;
@@ -18,63 +17,12 @@ interface ServicesViewProps {
 }
 
 export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, currency }) => {
-  const [workshopPhoto, setWorkshopPhoto] = useState<string>(() => {
-    return localStorage.getItem('naiahautos_workshop_photo_v2') || workshopBayDefaultImg;
-  });
+  const workshopPhoto = workshopBayDefaultImg;
 
-  const [availableGalleryPhotos, setAvailableGalleryPhotos] = useState<Array<{ id: string; title: string; url: string }>>([]);
-  const [isWorkshopPickerOpen, setIsWorkshopPickerOpen] = useState(false);
-  const [photoSavedToast, setPhotoSavedToast] = useState(false);
-
+  // One-time cleanup of photos saved by the old picker, so the new picture shows
   useEffect(() => {
-    async function loadGalleryPhotos() {
-      requestPersistentStorage().catch(() => {});
-      
-      const customWorkshop = await getCustomSetting('naiahautos_workshop_photo_v2');
-      if (customWorkshop) {
-        setWorkshopPhoto(customWorkshop);
-      }
-
-      try {
-        const stored = await getStoredRepairs();
-        const items = (stored && stored.length > 0) ? stored : INITIAL_REPAIRS_DATA;
-        const photos = items
-          .filter(item => item.mediaType === 'photo' && item.mediaUrl)
-          .map(item => ({ id: item.id, title: item.title, url: item.mediaUrl }));
-        setAvailableGalleryPhotos(photos);
-
-        if (!customWorkshop && photos.length > 0) {
-          const bayPhoto = photos.find(p => p.url.includes('repair_dashboard_framework')) || photos[0];
-          setWorkshopPhoto(bayPhoto.url);
-        }
-      } catch (e) {
-        console.warn('Failed to load gallery photos in ServicesView:', e);
-      }
-    }
-    loadGalleryPhotos();
+    clearLegacyPhotoSettings().catch(() => {});
   }, []);
-
-  const selectWorkshopPhotoPermanently = async (url: string) => {
-    setWorkshopPhoto(url);
-    await saveCustomSetting('naiahautos_workshop_photo_v2', url);
-    setIsWorkshopPickerOpen(false);
-    setPhotoSavedToast(true);
-    setTimeout(() => setPhotoSavedToast(false), 3500);
-  };
-
-  const handleWorkshopPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const dataUrl = event.target?.result as string;
-        if (dataUrl) {
-          selectWorkshopPhotoPermanently(dataUrl);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 bg-slate-50 text-slate-800">
@@ -205,108 +153,6 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
           })}
         </div>
       </div>
-
-      {/* Workshop Bay Photo Picker Modal */}
-      {isWorkshopPickerOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-200 space-y-5 animate-in fade-in zoom-in-95 duration-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-                  <Camera className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-base font-extrabold text-slate-900">Change Workshop Bay Picture</h3>
-                  <p className="text-xs text-slate-500">Pick from your workshop gallery or upload from device</p>
-                </div>
-              </div>
-              <button
-                onClick={() => setIsWorkshopPickerOpen(false)}
-                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Current Selected Preview */}
-            <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-2xl border border-slate-200">
-              <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-200 shrink-0 border border-slate-300">
-                <img src={workshopPhoto} alt="Current workshop selection" className="w-full h-full object-cover" />
-              </div>
-              <div className="text-xs space-y-1">
-                <span className="font-bold text-slate-800 block">Current Workshop Picture</span>
-                <span className="text-[11px] text-emerald-700 font-semibold block flex items-center gap-1">
-                  <Check className="w-3 h-3 text-emerald-600" />
-                  Locked & Permanently Saved
-                </span>
-              </div>
-            </div>
-
-            {/* Option 1: Select from Gallery */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-                <ImageIcon className="w-3.5 h-3.5 text-emerald-700" />
-                <span>Select from Your Workshop Gallery:</span>
-              </label>
-              
-              {availableGalleryPhotos.length === 0 ? (
-                <p className="text-xs text-slate-400 italic">No gallery pictures found.</p>
-              ) : (
-                <div className="grid grid-cols-3 gap-2.5 max-h-48 overflow-y-auto pr-1">
-                  {availableGalleryPhotos.map((photo, idx) => (
-                    <button
-                      key={photo.id || idx}
-                      type="button"
-                      onClick={() => selectWorkshopPhotoPermanently(photo.url)}
-                      className={`group relative aspect-square rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                        workshopPhoto === photo.url
-                          ? 'border-emerald-600 ring-2 ring-emerald-500/30'
-                          : 'border-slate-200 hover:border-emerald-400'
-                      }`}
-                      title={photo.title}
-                    >
-                      <img src={photo.url} alt={photo.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                      {workshopPhoto === photo.url && (
-                        <div className="absolute inset-0 bg-emerald-950/40 flex items-center justify-center">
-                          <div className="w-6 h-6 rounded-full bg-lime-400 text-emerald-950 flex items-center justify-center shadow-md">
-                            <Check className="w-3.5 h-3.5 stroke-[3]" />
-                          </div>
-                        </div>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Option 2: Upload New Photo from Device */}
-            <div className="pt-2 border-t border-slate-100">
-              <label className="w-full py-3 px-4 rounded-xl bg-lime-400 hover:bg-lime-300 text-emerald-950 text-xs font-black flex items-center justify-center gap-2 cursor-pointer shadow-md transition-all hover:scale-[1.02] active:scale-98 border border-lime-300">
-                <Upload className="w-4 h-4 stroke-[2.5]" />
-                <span>Upload New Workshop Picture from Device</span>
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handleWorkshopPhotoUpload}
-                />
-              </label>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Photo Saved Toast Notification */}
-      {photoSavedToast && (
-        <div className="fixed bottom-6 right-6 z-50 bg-emerald-950 text-white border border-lime-400/50 shadow-2xl rounded-2xl px-5 py-3.5 flex items-center gap-3 animate-in slide-in-from-bottom-5 duration-300">
-          <div className="w-6 h-6 rounded-full bg-lime-400 text-emerald-950 flex items-center justify-center shrink-0">
-            <Check className="w-3.5 h-3.5 stroke-[3]" />
-          </div>
-          <div className="text-xs font-bold text-white">
-            Workshop bay picture updated & permanently saved!
-          </div>
-        </div>
-      )}
 
     </div>
   );
