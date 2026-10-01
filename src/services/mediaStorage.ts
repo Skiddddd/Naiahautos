@@ -6,7 +6,7 @@ const STORE_NAME = 'repairs_media_store';
 const KEY_NAME = 'gallery_repairs_items';
 // Bump this whenever the built-in gallery photos/videos change, so browsers that
 // saved an older copy pick up the new default media.
-const DATA_VERSION = 'naiahautos_gallery_version_v8';
+const DATA_VERSION = 'naiahautos_gallery_version_v9';
 
 function isCurrentVersion(): boolean {
   try { return localStorage.getItem(DATA_VERSION) === 'applied'; } catch { return true; }
