@@ -274,7 +274,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 px-2.5 py-1 rounded-lg text-[11px] font-mono text-white shadow-[0_4px_10px_rgba(0,0,0,0.4)]"
                       style={{ transform: 'translateZ(26px)' }}
                     >
-                      {featuredCars[0].mileageKm.toLocaleString()} km · Tokunbo
+                      Foreign Used · Tokunbo
                     </div>
 
                     <div 
@@ -409,7 +409,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <span>Book Diagnostic / Inspection</span>
                 </button>
                 <div className="text-xs text-emerald-200/90 font-medium">
-                  Plot 14, Block 7, Admiralty Way, Lekki Phase 1, Lagos
+                  New Road Bus Stop, Before Chevron, Lekki, Lagos
                 </div>
               </div>
             </div>
@@ -662,13 +662,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     style={{ transform: 'translateZ(26px)' }}
                   >
                     Score: {car.inspectionScore}/100
-                  </div>
-
-                  <div 
-                    className="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-sm text-white px-2.5 py-1 rounded-lg text-[11px] font-mono shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
-                    style={{ transform: 'translateZ(24px)' }}
-                  >
-                    {car.mileageKm.toLocaleString()} km
                   </div>
                 </div>
 
