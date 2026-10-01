@@ -54,18 +54,18 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[100] overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-2 sm:p-6 animate-in fade-in duration-200">
       <div 
-        className="bg-white border border-slate-200 rounded-2xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden relative text-slate-800"
+        className="bg-white border border-slate-200 rounded-2xl w-full max-w-4xl max-h-[96dvh] sm:max-h-[92vh] flex flex-col shadow-2xl overflow-hidden relative text-slate-800"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar: Forest Green */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#064E3B] text-white">
+        <div className="flex items-start sm:items-center justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 border-b border-emerald-800 bg-[#064E3B] text-white">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-lime-300">
               {vehicle.condition} · {vehicle.location}
             </span>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+            <h2 className="text-lg sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
               {vehicle.name}
             </h2>
           </div>
@@ -79,7 +79,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
         </div>
 
         {/* Modal Scrollable Content */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5 sm:space-y-6">
           
           {/* Main Visual & Key Stats */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -435,7 +435,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
         </div>
 
         {/* Footer info bar */}
-        <div className="p-4 px-6 bg-slate-100 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+        <div className="p-4 px-4 sm:px-6 bg-slate-100 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 text-xs text-slate-600">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-emerald-700 shrink-0" />
             <span>Showroom: {DEALERSHIP_CONFIG.address}, {DEALERSHIP_CONFIG.city}</span>
