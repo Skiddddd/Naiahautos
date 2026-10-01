@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, MapPin, CheckCircle2, MessageCircle, ShieldCheck, Car } from 'lucide-react';
+import { X, Calendar, Clock, MapPin, CheckCircle2, ShieldCheck, Car } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { DEALERSHIP_CONFIG, Vehicle } from '../data/cars';
 import { AUTO_SERVICES_DATA } from '../data/services';
 
@@ -138,7 +139,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   onClick={handleSendToWhatsApp}
                   className="flex-1 py-3 px-4 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow cursor-pointer transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   Open WhatsApp Chat (+234 806 416 0748)
                 </button>
                 <button
@@ -319,7 +320,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   type="submit"
                   className="w-full py-3.5 px-4 bg-lime-400 hover:bg-lime-300 active:bg-lime-500 text-emerald-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-colors cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-emerald-950" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-950" />
                   <span>Confirm & Send to WhatsApp (08064160748)</span>
                 </button>
                 <p className="text-[11px] text-center text-slate-500">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageCircle, X, Send, CheckCircle2, Clock, Shield, PhoneCall } from 'lucide-react';
+import { X, Send, CheckCircle2, Clock, Shield, PhoneCall } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 
 interface WhatsAppFloatingButtonProps {
@@ -172,7 +173,7 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
                   onClick={() => handleSendWhatsApp(customMessage)}
                   className="w-full py-2.5 px-4 bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white text-xs font-bold rounded-lg shadow-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-lime-300 shrink-0" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300 shrink-0" />
                   <span>Start Chat on WhatsApp</span>
                 </button>
               </div>
@@ -214,7 +215,7 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
             Message on Whatsapp
           </span>
           <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs">
-            <MessageCircle className="w-4 h-4 fill-current" />
+            <WhatsAppIcon className="w-5 h-5" />
           </div>
         </motion.button>
       </div>

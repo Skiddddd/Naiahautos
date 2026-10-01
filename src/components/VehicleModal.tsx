@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Check, FileCheck, MessageCircle, MapPin, Calculator } from 'lucide-react';
+import { X, Check, FileCheck, MapPin, Calculator } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { Vehicle, DEALERSHIP_CONFIG, showroomHeroImg } from '../data/cars';
 import { Naira } from './NairaSign';
 
@@ -83,11 +84,17 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
           {/* Main Visual & Key Stats */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             <div className="md:col-span-7 space-y-3">
-              <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 group">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-200 group">
+                <img
+                  src={shownImage}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover blur-2xl scale-125 opacity-60"
+                />
                 <img
                   src={shownImage}
                   alt={vehicle.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="relative w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = showroomHeroImg;
@@ -110,12 +117,12 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                       key={i}
                       type="button"
                       onClick={() => setActiveImage(img)}
-                      className={`aspect-[4/3] rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
+                      className={`aspect-[4/3] bg-slate-900 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
                         shownImage === img ? 'border-emerald-600 ring-2 ring-emerald-200' : 'border-slate-200 hover:border-emerald-400'
                       }`}
                       aria-label={`View photo ${i + 1}`}
                     >
-                      <img src={img} alt={`${vehicle.name} photo ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                      <img src={img} alt={`${vehicle.name} photo ${i + 1}`} className="w-full h-full object-contain" loading="lazy" />
                     </button>
                   ))}
                 </div>
@@ -163,7 +170,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
                   onClick={handleWhatsAppInquiry}
                   className="w-full py-3 px-4 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow transition-colors cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   Inquire on WhatsApp
                 </button>
                 <button

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageCircle, Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 
 export type NavTab = 'home' | 'inventory' | 'services' | 'repairs' | 'vin-checker' | 'inspection' | 'contact';
@@ -100,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 px-4 py-2 text-xs font-bold text-emerald-950 bg-lime-400 hover:bg-lime-300 rounded-lg transition-colors whitespace-nowrap shadow-sm cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 fill-current text-emerald-900" />
+              <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-900" />
               <span>WhatsApp Us</span>
             </motion.a>
 
@@ -156,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 bg-lime-400 hover:bg-lime-300 text-emerald-950 text-xs font-bold rounded-lg flex items-center justify-center gap-2 shadow transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-emerald-900" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-900" />
                   <span>Chat on WhatsApp ({DEALERSHIP_CONFIG.whatsappDisplay})</span>
                 </a>
               </div>

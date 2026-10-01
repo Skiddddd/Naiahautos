@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, ChevronRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ChevronRight } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { NavTab } from './Navbar';
 
@@ -166,7 +167,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <MessageCircle className="w-4 h-4 text-lime-400 shrink-0" />
+                <WhatsAppIcon className="w-4 h-4 text-lime-400 shrink-0" />
                 <a 
                   href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}`} 
                   target="_blank" 
