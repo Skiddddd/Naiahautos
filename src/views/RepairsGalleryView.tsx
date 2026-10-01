@@ -58,7 +58,7 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
                 <span className="w-2 h-2 rounded-full bg-lime-400 animate-pulse" />
                 <span>Automotive Engineering & Repairs</span>
                 <span className="text-emerald-500">|</span>
-                <span>Lekki Phase 1, Lagos</span>
+                <span>New Road Bus Stop, Lekki, Lagos</span>
               </div>
               <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
                 Repairs & Autos Gallery
