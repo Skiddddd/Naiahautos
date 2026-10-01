@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ShieldCheck, FileCheck, CheckCircle2, AlertTriangle, Eye, Car, Cpu, Gauge, MapPin, MessageCircle } from 'lucide-react';
+import { ShieldCheck, FileCheck, CheckCircle2, AlertTriangle, Eye, Car, Cpu, Gauge, MapPin } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from '../components/NairaSign';
 import { TiltCard } from '../components/TiltCard';
@@ -53,7 +54,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             rel="noopener noreferrer"
             className="w-full sm:w-auto py-3.5 px-6 bg-[#022c22]/80 hover:bg-[#033c2e] text-emerald-100 hover:text-white font-bold text-xs rounded-xl border border-emerald-500/40 shadow-[0_3px_0_#011a14] active:translate-y-[2px] transition-all cursor-pointer flex items-center justify-center gap-2"
           >
-            <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+            <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
             <span>Request Instant Inspector Dispatch</span>
           </a>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 
 export const ContactView: React.FC = () => {
@@ -112,7 +113,7 @@ export const ContactView: React.FC = () => {
             {/* WhatsApp */}
             <div className="flex items-start gap-3.5 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
               <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
               </div>
               <div>
                 <span className="text-slate-500 block text-[11px] uppercase font-semibold">Official WhatsApp Business</span>
@@ -185,7 +186,7 @@ export const ContactView: React.FC = () => {
                   onClick={handleForwardWhatsApp}
                   className="py-3 px-5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   Open WhatsApp Chat (+234 806 416 0748)
                 </button>
                 <button
@@ -287,7 +288,7 @@ export const ContactView: React.FC = () => {
                   type="submit"
                   className="w-full py-3.5 px-4 bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-colors cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   <span>Send Inquiry to WhatsApp (08064160748)</span>
                 </button>
                 <p className="text-[11px] text-center text-slate-500">

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import {
   Check,
   Clock,
-  FileText,
-  MessageCircle
+  FileText
 } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { AUTO_SERVICES_DATA } from '../data/services';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from '../components/NairaSign';
@@ -55,7 +55,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
                 rel="noopener noreferrer"
                 className="py-3 px-5 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs rounded-xl border border-white/20 flex items-center gap-2 cursor-pointer transition-colors"
               >
-                <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+                <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                 <span>WhatsApp Service Advisor</span>
               </a>
             </div>

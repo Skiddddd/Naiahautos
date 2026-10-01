@@ -14,9 +14,9 @@ import {
   Clock,
   Check,
   Calendar,
-  PhoneCall,
-  MessageCircle
+  PhoneCall
 } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { VEHICLES_DATA, Vehicle, DEALERSHIP_CONFIG, showroomHeroImg } from '../data/cars';
 import { AUTO_SERVICES_DATA, AutoService } from '../data/services';
 import { TiltCard } from '../components/TiltCard';
@@ -68,7 +68,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               rel="noopener noreferrer"
               className="px-5 py-2 rounded-full bg-[#1e40af] hover:bg-[#1d4ed8] text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-xs transition-all cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
+              <WhatsAppIcon className="w-4 h-4 fill-current" />
               <span>Chat us</span>
             </a>
             <span className="text-xs text-slate-500 font-medium hidden sm:inline">
@@ -125,7 +125,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   rel="noopener noreferrer"
                   className="px-5 py-3 rounded-2xl bg-[#22c55e] hover:bg-[#16a34a] text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current" />
                   <span>Message on WhatsApp</span>
                 </a>
 
@@ -254,8 +254,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-900 shadow-inner">
                     <img
                       src={featuredCars[0].imageUrl}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-2xl scale-125 opacity-60"
+                    />
+                    <img
+                      src={featuredCars[0].imageUrl}
                       alt={featuredCars[0].name}
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                      className="relative w-full h-full object-contain group-hover:scale-108 transition-transform duration-700"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = showroomHeroImg;
                       }}
@@ -360,7 +366,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               rel="noopener noreferrer"
               className="px-5 py-3 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+              <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
               <span>WhatsApp Service Advisor</span>
             </a>
           </div>
@@ -537,7 +543,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className="p-2.5 rounded-xl border border-emerald-200 text-emerald-700 hover:bg-emerald-50 transition-colors cursor-pointer"
                       title="WhatsApp Advisor"
                     >
-                      <MessageCircle className="w-4 h-4 fill-current" />
+                      <WhatsAppIcon className="w-4 h-4 fill-current" />
                     </a>
 
                     <button
@@ -641,8 +647,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                   <img
                     src={car.imageUrl}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl scale-125 opacity-60"
+                  />
+                  <img
+                    src={car.imageUrl}
                     alt={car.name}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    className="relative w-full h-full object-contain group-hover:scale-108 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = showroomHeroImg;
@@ -778,7 +790,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               rel="noopener noreferrer"
               className="w-full sm:w-auto py-3.5 px-6 bg-lime-400 hover:bg-lime-300 text-emerald-950 font-bold text-xs rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-colors"
             >
-              <MessageCircle className="w-4 h-4 fill-current text-emerald-900" />
+              <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-900" />
               <span>Chat on WhatsApp</span>
             </a>
             <button

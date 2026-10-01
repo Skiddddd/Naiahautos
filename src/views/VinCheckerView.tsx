@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { 
   Search, ShieldCheck, CheckCircle2, AlertCircle, FileText, 
-  MapPin, Cpu, Car, Layers, Gauge, RefreshCw, Copy, Check, MessageCircle, ChevronDown, ChevronUp 
+  MapPin, Cpu, Car, Layers, Gauge, RefreshCw, Copy, Check, ChevronDown, ChevronUp 
 } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { decodeVinLive, DecodedVinData, SAMPLE_VINS, validateVinCheckDigit } from '../services/vinService';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 import { Naira } from '../components/NairaSign';
@@ -196,7 +197,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
                   onClick={handleWhatsAppVerify}
                   className="flex-1 lg:flex-initial py-3 px-5 btn-3d-emerald font-bold text-xs rounded-xl flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-lime-300" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   <span>Verify Duty on WhatsApp</span>
                 </button>
                 <button
