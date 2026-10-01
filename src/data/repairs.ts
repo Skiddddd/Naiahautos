@@ -1,5 +1,4 @@
 import steeringColumnImg from '@/src/assets/images/repair_steering_column_electrical.jpg';
-import aPillarImg from '@/src/assets/images/repair_a_pillar_wiring.jpg';
 import blowerClimateImg from '@/src/assets/images/repair_blower_climate.jpg';
 import steeringFuseboxImg from '@/src/assets/images/repair_steering_fusebox.jpg';
 import dashFrameworkImg from '@/src/assets/images/repair_dashboard_framework.jpg';
@@ -60,23 +59,6 @@ export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
     warranty: '6 Months Electrical Guarantee',
     date: 'September 2026',
     technician: 'Lead Auto Electrician'
-  },
-  {
-    id: 'rep-dash-02',
-    title: 'A-Pillar & Windshield Wiring Loom Routing & Restoration',
-    vehicle: 'Lexus RX350 / Toyota Cabin',
-    category: 'electrical',
-    mediaType: 'photo',
-    mediaUrl: aPillarImg,
-    thumbnailUrl: aPillarImg,
-    faultReport: 'Water seepage from sunroof drain corroded upper A-pillar wiring and curtain airbag wiring junction.',
-    dtcCodes: ['B0001 (Driver Frontal Airbag Stage 1)', 'B1206 (Crash Sensor Communication)'],
-    repairPerformed: 'Cleaned corrosion on body ground points, replaced sealed multi-pin connectors, waterproofed wiring path along windshield pillar.',
-    partsReplaced: ['Gold-Plated Airbag Connector Terminals', 'Weatherproof Loom Wrap'],
-    turnaroundTime: '18 Hours',
-    warranty: '12 Months Guarantee',
-    date: 'September 2026',
-    technician: 'Senior Automotive Electronics Engineer'
   },
   {
     id: 'rep-dash-03',
