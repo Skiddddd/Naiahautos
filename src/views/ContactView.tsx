@@ -76,7 +76,7 @@ export const ContactView: React.FC = () => {
               Naiahautos Headquarters
             </h2>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Showroom, customer vehicle collection hub, and certified computerized diagnostic bay in Lekki Phase 1, Lagos.
+              Showroom, customer vehicle collection hub, and certified computerized diagnostic bay at New Road Bus Stop, Before Chevron, Lekki, Lagos.
             </p>
           </div>
 
