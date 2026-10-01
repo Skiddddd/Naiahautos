@@ -18,7 +18,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMake, setSelectedMake] = useState<string>('All');
   const [selectedBodyType, setSelectedBodyType] = useState<string>('All');
-  const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'year' | 'mileage'>('featured');
+  const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'year'>('featured');
 
   const makes = ['All', 'Mercedes-Benz', 'Lexus', 'BMW', 'Toyota', 'Honda', 'Land Rover'];
   const bodyTypes = ['All', 'SUV', 'Sedan'];
@@ -44,9 +44,6 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
       }
       if (sortBy === 'year') {
         return b.year - a.year;
-      }
-      if (sortBy === 'mileage') {
-        return a.mileageKm - b.mileageKm;
       }
       return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
     });
@@ -106,7 +103,6 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
                 <option value="price-asc">Price: Low to High</option>
                 <option value="price-desc">Price: High to Low</option>
                 <option value="year">Newest Model Year</option>
-                <option value="mileage">Lowest Mileage</option>
               </select>
             </div>
           </div>
@@ -209,12 +205,14 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
                     Score: {car.inspectionScore}/100
                   </div>
 
-                  <div 
-                    className="absolute bottom-3 right-3 bg-slate-900/85 backdrop-blur-sm text-white px-2.5 py-0.5 rounded-lg text-[11px] font-mono shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
-                    style={{ transform: 'translateZ(24px)' }}
-                  >
-                    VIN: {car.vin}
-                  </div>
+                  {car.vin && (
+                    <div 
+                      className="absolute bottom-3 right-3 bg-slate-900/85 backdrop-blur-sm text-white px-2.5 py-0.5 rounded-lg text-[11px] font-mono shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
+                      style={{ transform: 'translateZ(24px)' }}
+                    >
+                      VIN: {car.vin}
+                    </div>
+                  )}
                 </div>
 
                 {/* 3D Elevated Details Body */}
@@ -233,11 +231,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
 
                   {/* Highlights with subtle 3D inset */}
                   <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600 pt-1" style={{ transform: 'translateZ(16px)' }}>
-                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
-                      <span className="text-slate-400 block text-[10px] uppercase font-bold">Mileage</span>
-                      <span className="font-extrabold font-mono text-slate-800">{car.mileageKm.toLocaleString()} km</span>
-                    </div>
-                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
+                    <div className="col-span-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
                       <span className="text-slate-400 block text-[10px] uppercase font-bold">Location</span>
                       <span className="font-extrabold text-slate-800">Lekki Showroom</span>
                     </div>
