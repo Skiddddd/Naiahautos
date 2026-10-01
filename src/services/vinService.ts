@@ -169,11 +169,6 @@ export const SAMPLE_VINS = [
     category: 'German Luxury SUV'
   },
   {
-    vin: '2T2BZMCA5NC123456',
-    label: 'Lexus RX 350 AWD',
-    category: 'Japanese Luxury SUV'
-  },
-  {
     vin: 'WBA53EJ07PC123456',
     label: 'BMW 5-Series Executive',
     category: 'German Sport Sedan'
