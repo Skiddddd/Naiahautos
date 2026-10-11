@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Phone, Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { DEALERSHIP_CONFIG } from '../data/cars';
 
@@ -14,157 +13,85 @@ interface NavbarProps {
   onOpenAudit?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
-  activeTab,
-  setActiveTab,
-}) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const navItems: { id: NavTab; label: string }[] = [
+  { id: 'home', label: 'Home' },
+  { id: 'inventory', label: 'Vehicles' },
+  { id: 'services', label: 'Services' },
+  { id: 'repairs', label: 'Workshop' },
+  { id: 'inspection', label: 'Inspection' },
+  { id: 'vin-checker', label: 'VIN check' },
+  { id: 'contact', label: 'Contact' },
+];
 
-  const navItems: { id: NavTab; label: string; badge?: string }[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'repairs', label: 'Repairs & Autos Gallery' },
-    { id: 'inventory', label: 'Featured Vehicles' },
-    { id: 'vin-checker', label: 'VIN Decoder' },
-    { id: 'inspection', label: '200-Pt Inspection' },
-    { id: 'contact', label: 'Contact' }
-  ];
+export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
+  const [open, setOpen] = useState(false);
 
-  const handleNavClick = (tabId: typeof activeTab) => {
-    if (tabId === 'services') {
+  const go = (id: NavTab) => {
+    setOpen(false);
+    if (id === 'services') {
       setActiveTab('home');
-      setMobileMenuOpen(false);
-      setTimeout(() => {
-        const el = document.getElementById('services');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 60);
-    } else {
-      setActiveTab(tabId);
-      setMobileMenuOpen(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+      return;
     }
+    setActiveTab(id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const wa = `https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello Naiahautos, I am interested in your vehicles and services.')}`;
+
   return (
-    <header className="sticky top-0 z-40 bg-[#064E3B] text-white shadow-md border-b border-emerald-700/60 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          
-          {/* Zone 1: Single text element wordmark */}
-          <button
-            onClick={() => handleNavClick('home')}
-            className="text-2xl font-extrabold tracking-tight text-white hover:text-lime-300 transition-colors cursor-pointer text-left flex items-center gap-1.5"
-          >
-            <span>Naiahautos</span><span className="text-lime-400">.</span>
-          </button>
+    <header className="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-gold-400/20">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between gap-6">
+        <button onClick={() => go('home')} className="cursor-pointer text-left leading-none" aria-label="Naiahautos home">
+          <span className="font-display text-3xl font-bold text-slate-900 tracking-tight">Naiahautos</span>
+          <span className="text-gold-400 text-3xl font-display">.</span>
+        </button>
 
-          {/* Zone 2: 4-6 clean text navigation links with subtle underline/highlight */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-emerald-100">
-            {navItems.map((item) => {
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`relative py-1.5 transition-colors hover:text-white cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
-                    isActive ? 'text-lime-300 font-bold' : 'text-emerald-100 hover:text-white'
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {item.badge && (
-                    <span className="px-1.5 py-0.5 rounded-md bg-lime-400 text-emerald-950 text-[10px] font-black uppercase tracking-wider">
-                      {item.badge}
-                    </span>
-                  )}
-                  {isActive && (
-                    <motion.span
-                      layoutId="navbarActiveUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-lime-400 rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* Zone 3: 1-2 primary actions */}
-          <div className="flex items-center gap-3">
-            {/* Direct WhatsApp Call/Chat */}
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent("Hello Naiahautos, I am interested in your automobile inventory & services.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 px-4 py-2 text-xs font-bold text-emerald-950 bg-lime-400 hover:bg-lime-300 rounded-lg transition-colors whitespace-nowrap shadow-sm cursor-pointer"
-            >
-              <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-900" />
-              <span>WhatsApp Us</span>
-            </motion.a>
-
-            {/* Mobile menu trigger */}
+        <nav className="hidden lg:flex items-center gap-8 text-[13px] font-semibold tracking-wide">
+          {navItems.map((n) => (
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-emerald-100 hover:text-white hover:bg-emerald-800/60 rounded-lg transition-colors cursor-pointer"
-              aria-label="Toggle navigation"
+              key={n.id}
+              onClick={() => go(n.id)}
+              className={`relative py-2 cursor-pointer transition-colors ${activeTab === n.id ? 'text-gold-300' : 'text-slate-600 hover:text-slate-900'}`}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {n.label}
+              {activeTab === n.id && <span className="absolute left-0 right-0 -bottom-0.5 h-px bg-gold-400" />}
             </button>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <a href={wa} target="_blank" rel="noopener noreferrer" className="hidden sm:flex btn-3d-lime items-center gap-2 px-5 py-2.5 rounded-lg text-xs">
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
+            WhatsApp us
+          </a>
+          <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-slate-900 cursor-pointer" aria-label="Toggle navigation">
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <div className="lg:hidden border-t border-gold-400/20 bg-black/95 px-5 py-4 space-y-1">
+          {navItems.map((n) => (
+            <button
+              key={n.id}
+              onClick={() => go(n.id)}
+              className={`w-full text-left px-3 py-3 text-base font-display ${activeTab === n.id ? 'text-gold-300' : 'text-slate-800'}`}
+            >
+              {n.label}
+            </button>
+          ))}
+          <div className="pt-3 grid gap-2">
+            <a href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`} className="btn-3d-emerald flex items-center justify-center gap-2 py-3 rounded-lg text-xs">
+              <Phone className="w-4 h-4" /> {DEALERSHIP_CONFIG.phoneDisplay}
+            </a>
+            <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-3d-lime flex items-center justify-center gap-2 py-3 rounded-lg text-xs">
+              <WhatsAppIcon className="w-4 h-4 fill-current" /> Chat on WhatsApp
+            </a>
           </div>
         </div>
-
-        {/* Mobile Navigation Drawer */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.22, ease: "easeInOut" }}
-              className="md:hidden py-4 border-t border-emerald-700/60 space-y-2 bg-[#064E3B] overflow-hidden"
-            >
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors flex items-center justify-between ${
-                    activeTab === item.id ? 'bg-emerald-800 text-lime-300' : 'text-emerald-100 hover:bg-emerald-800/50'
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {item.badge && (
-                    <span className="px-2 py-0.5 rounded-md bg-lime-400 text-emerald-950 text-[10px] font-black uppercase tracking-wider">
-                      {item.badge}
-                    </span>
-                  )}
-                </button>
-              ))}
-
-              <div className="pt-3 border-t border-emerald-700/60 flex flex-col gap-2 px-4">
-                <a
-                  href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`}
-                  className="w-full py-2.5 px-4 bg-emerald-900/80 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg flex items-center justify-center gap-2 border border-emerald-700 transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-lime-400" />
-                  <span>Call Phone: {DEALERSHIP_CONFIG.phoneDisplay}</span>
-                </a>
-                <a
-                  href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 bg-lime-400 hover:bg-lime-300 text-emerald-950 text-xs font-bold rounded-lg flex items-center justify-center gap-2 shadow transition-colors"
-                >
-                  <WhatsAppIcon className="w-4 h-4 fill-current text-emerald-900" />
-                  <span>Chat on WhatsApp ({DEALERSHIP_CONFIG.whatsappDisplay})</span>
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+      )}
     </header>
   );
 };
