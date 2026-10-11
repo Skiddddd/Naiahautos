@@ -28,7 +28,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 bg-slate-50 text-slate-800">
       
       {/* Header Banner: Deep emerald with lime accents */}
-      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-r from-[#064E3B] to-[#043326] text-white shadow-lg">
+      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-r from-[#0c2a20] to-[#08201a] text-white shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
           <div className="lg:col-span-7 p-8 sm:p-12 space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-lime-300">
@@ -53,7 +53,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
                 href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent("Hello Naiahautos, I would like to inquire about your workshop automotive services.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3 px-5 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs rounded-xl border border-white/20 flex items-center gap-2 cursor-pointer transition-colors"
+                className="py-3 px-5 bg-surface/10 hover:bg-surface/20 text-white font-semibold text-xs rounded-xl border border-white/20 flex items-center gap-2 cursor-pointer transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                 <span>WhatsApp Service Advisor</span>
@@ -71,8 +71,8 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
                 (e.target as HTMLImageElement).src = workshopBayDefaultImg;
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#064E3B] via-transparent to-transparent hidden lg:block pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#043326] via-transparent to-transparent lg:hidden pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c2a20] via-transparent to-transparent hidden lg:block pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#08201a] via-transparent to-transparent lg:hidden pointer-events-none" />
           </div>
         </div>
       </div>
@@ -97,11 +97,11 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+                className="bg-surface rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow flex flex-col lg:flex-row lg:items-center justify-between gap-6"
               >
                 <div className="space-y-3 max-w-2xl">
                   <div className="flex items-center gap-3">
-                    <span className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-full bg-gold-400/10 text-gold-300 text-xs font-bold flex items-center justify-center">
                       0{index + 1}
                     </span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -116,7 +116,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
                   <div className="flex flex-wrap gap-y-2 gap-x-4 pt-1">
                     {service.features.map((feature, fIndex) => (
                       <div key={fIndex} className="flex items-center gap-1.5 text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-emerald-700 shrink-0 stroke-[2.5]" />
+                        <Check className="w-3.5 h-3.5 text-gold-300 shrink-0 stroke-[2.5]" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -138,12 +138,12 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
                 <div className="flex lg:flex-col items-center lg:items-end justify-between gap-4 pt-4 lg:pt-0 border-t lg:border-t-0 border-slate-100">
                   <div className="text-right">
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Service Fee</div>
-                    <div className="text-lg sm:text-xl font-black text-emerald-900">{price}</div>
+                    <div className="text-lg sm:text-xl font-black text-gold-300">{price}</div>
                   </div>
 
                   <button
                     onClick={() => onBookService(service.id)}
-                    className="py-3 px-6 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow-md cursor-pointer transition-colors shrink-0"
+                    className="py-3 px-6 rounded-xl bg-gold-400 hover:bg-gold-300 text-ink-950 text-xs font-bold shadow-md cursor-pointer transition-colors shrink-0"
                   >
                     Schedule Service
                   </button>
