@@ -30,8 +30,8 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 text-slate-800">
-          <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl border border-slate-200 text-center space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto font-bold text-xl">
+          <div className="max-w-md w-full bg-surface p-8 rounded-2xl shadow-xl border border-slate-200 text-center space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-gold-400/10 text-gold-300 flex items-center justify-center mx-auto font-bold text-xl">
               N
             </div>
             <h2 className="text-xl font-bold text-slate-900">Naiahautos Dealership</h2>
@@ -43,7 +43,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 this.setState({ hasError: false });
                 window.location.reload();
               }}
-              className="py-2.5 px-6 bg-[#064E3B] hover:bg-[#043E2F] text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-colors"
+              className="py-2.5 px-6 bg-[#0c2a20] hover:bg-[#0a281e] text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-colors"
             >
               Reload Showroom
             </button>
