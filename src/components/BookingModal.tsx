@@ -84,7 +84,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header: Forest Green with Lemon Accent */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#0c2a20] text-white">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#14141b] text-white">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-lime-400" />
             <h2 className="text-lg font-bold text-white tracking-tight">

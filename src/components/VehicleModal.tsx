@@ -60,7 +60,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar: Forest Green */}
-        <div className="flex items-start sm:items-center justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 border-b border-emerald-800 bg-[#0c2a20] text-white">
+        <div className="flex items-start sm:items-center justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 border-b border-emerald-800 bg-[#14141b] text-white">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-lime-300">
               {vehicle.condition} · {vehicle.location}

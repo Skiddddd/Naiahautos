@@ -93,13 +93,13 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
               aria-label="Naiahautos Support Chat"
             >
             {/* Header: Forest Green - Pinned & Never Shrinks (shrink-0) */}
-            <div className="shrink-0 bg-[#0c2a20] px-4 py-3 sm:py-3.5 border-b border-emerald-800 flex items-center justify-between text-white">
+            <div className="shrink-0 bg-[#14141b] px-4 py-3 sm:py-3.5 border-b border-emerald-800 flex items-center justify-between text-white">
               <div className="flex items-center gap-3">
                 <div className="relative shrink-0">
                   <div className="w-9 h-9 rounded-full bg-lime-400 text-emerald-950 font-extrabold text-xs flex items-center justify-center shadow-inner">
                     NA
                   </div>
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 rounded-full ring-2 ring-[#0c2a20]" />
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 rounded-full ring-2 ring-[#14141b]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white flex items-center gap-1.5 leading-tight">

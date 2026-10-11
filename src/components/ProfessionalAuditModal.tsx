@@ -23,7 +23,7 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
       title: "Clean Green & White Theme Architecture",
       icon: Palette,
       status: "Compliant & Applied",
-      details: "Styled with an executive British racing/forest green (#0c2a20) header with lemon-lime accents, transitioning cleanly into crisp, high-readability white cards, modern slate typography, and emerald badges. Designed for maximum trust and daylight visibility."
+      details: "Styled with an executive British racing/forest green (#14141b) header with lemon-lime accents, transitioning cleanly into crisp, high-readability white cards, modern slate typography, and emerald badges. Designed for maximum trust and daylight visibility."
     },
     {
       title: "Real-World Dealership Trust Architecture",
@@ -64,7 +64,7 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header: Forest Green */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#0c2a20] text-white">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#14141b] text-white">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-lime-400 text-emerald-950 flex items-center justify-center font-bold">
               <CheckCircle2 className="w-5 h-5" />
