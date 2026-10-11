@@ -78,13 +78,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
       <div 
-        className="bg-white border border-slate-200 rounded-2xl w-full max-w-2xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-slate-800"
+        className="bg-surface border border-slate-200 rounded-2xl w-full max-w-2xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-slate-800"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header: Forest Green with Lemon Accent */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#064E3B] text-white">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#0c2a20] text-white">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-lime-400" />
             <h2 className="text-lg font-bold text-white tracking-tight">
@@ -103,7 +103,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         <div className="flex-1 overflow-y-auto p-6">
           {isSubmitted ? (
             <div className="text-center py-8 space-y-5">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto border border-emerald-200">
+              <div className="w-16 h-16 bg-gold-400/10 text-gold-300 rounded-full flex items-center justify-center mx-auto border border-gold-400/30">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <div className="space-y-1">
@@ -124,7 +124,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Date & Time:</span>
-                  <span className="text-emerald-800 font-mono font-bold">{preferredDate || 'Earliest Available'} ({preferredTime})</span>
+                  <span className="text-gold-300 font-mono font-bold">{preferredDate || 'Earliest Available'} ({preferredTime})</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Venue:</span>
@@ -137,7 +137,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
                 <button
                   onClick={handleSendToWhatsApp}
-                  className="flex-1 py-3 px-4 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow cursor-pointer transition-colors"
+                  className="flex-1 py-3 px-4 bg-gold-400 hover:bg-gold-300 text-ink-950 text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow cursor-pointer transition-colors"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   Open WhatsApp Chat (+234 806 416 0748)
@@ -164,7 +164,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <select
                   value={serviceId}
                   onChange={(e) => setServiceId(e.target.value)}
-                  className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm"
+                  className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm"
                 >
                   {AUTO_SERVICES_DATA.map((srv) => (
                     <option key={srv.id} value={srv.id}>
@@ -185,7 +185,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   placeholder="e.g. 2021 Lexus RX350 or Mercedes C300"
                   value={carDetails}
                   onChange={(e) => setCarDetails(e.target.value)}
-                  className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm"
+                  className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm"
                 />
               </div>
 
@@ -200,7 +200,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     onClick={() => setInspectionLocation('mobile')}
                     className={`p-3 rounded-lg border text-left cursor-pointer transition-colors ${
                       inspectionLocation === 'mobile'
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-950 shadow-sm'
+                        ? 'border-gold-400 bg-gold-400/10 text-emerald-950 shadow-sm'
                         : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                     }`}
                   >
@@ -213,7 +213,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     onClick={() => setInspectionLocation('hub')}
                     className={`p-3 rounded-lg border text-left cursor-pointer transition-colors ${
                       inspectionLocation === 'hub'
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-950 shadow-sm'
+                        ? 'border-gold-400 bg-gold-400/10 text-emerald-950 shadow-sm'
                         : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                     }`}
                   >
@@ -234,7 +234,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     placeholder="e.g. Ikeja GRA, Victoria Island, or Festac Town, Lagos"
                     value={mobileAddress}
                     onChange={(e) => setMobileAddress(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm"
+                    className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm"
                   />
                 </div>
               )}
@@ -250,7 +250,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     required
                     value={preferredDate}
                     onChange={(e) => setPreferredDate(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm"
+                    className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm"
                   />
                 </div>
 
@@ -261,7 +261,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <select
                     value={preferredTime}
                     onChange={(e) => setPreferredTime(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm"
+                    className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm"
                   >
                     <option value="09:00 AM">09:00 AM (Morning Slot)</option>
                     <option value="11:30 AM">11:30 AM (Midday Slot)</option>
@@ -283,7 +283,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     placeholder="e.g. Chief Adeleke"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm"
+                    className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm"
                   />
                 </div>
 
@@ -297,7 +297,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     placeholder="e.g. +234 803 123 4567"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm"
+                    className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm"
                   />
                 </div>
               </div>
@@ -311,7 +311,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   placeholder="e.g. Seller mentioned previous fender bender, please inspect front apron welds."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-sm resize-none"
+                  className="w-full bg-surface border border-slate-300 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 shadow-sm resize-none"
                 />
               </div>
 
