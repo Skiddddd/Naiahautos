@@ -1,3 +1,12 @@
+import siennaCollisionImg from '@/src/assets/images/repair_sienna_front_collision.jpg';
+import paintBoothImg from '@/src/assets/images/repair_poster_paint-booth-masking-spray.jpg';
+import acuraMdxImg from '@/src/assets/images/repair_poster_acura-mdx-exterior-refinish.jpg';
+import doorPanelImg from '@/src/assets/images/repair_poster_door-panel-bodywork-respray.jpg';
+import siennaPaintImg from '@/src/assets/images/repair_poster_sienna-body-repair-paint.jpg';
+import rearCollisionImg from '@/src/assets/images/repair_poster_rear-collision-repair-respray.jpg';
+import jeepImg from '@/src/assets/images/repair_poster_jeep-liberty-full-respray.jpg';
+import suvBoothImg from '@/src/assets/images/repair_poster_suv-spray-booth-finish.jpg';
+import santaFeImg from '@/src/assets/images/repair_poster_rebuild-to-red-santafe.jpg';
 import steeringColumnImg from '@/src/assets/images/repair_steering_column_electrical.jpg';
 import blowerClimateImg from '@/src/assets/images/repair_blower_climate.jpg';
 import steeringFuseboxImg from '@/src/assets/images/repair_steering_fusebox.jpg';
@@ -25,6 +34,158 @@ export interface RepairMediaItem {
 }
 
 export const INITIAL_REPAIRS_DATA: RepairMediaItem[] = [
+  {
+    id: 'rep-body-sienna-photo',
+    title: 'Toyota Sienna Front-End Collision Repair (Before & After)',
+    vehicle: 'Toyota Sienna',
+    category: 'paint',
+    mediaType: 'photo',
+    mediaUrl: siennaCollisionImg,
+    thumbnailUrl: siennaCollisionImg,
+    faultReport: 'Front bumper, fender and headlamp collision damage repaired and refinished.',
+    repairPerformed: 'Front bumper, fender and headlamp collision damage repaired and refinished.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-01',
+    title: 'Paint Booth Masking & Spray Application',
+    vehicle: 'Dark Sedan',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/paint-booth-masking-spray.mp4',
+    thumbnailUrl: paintBoothImg,
+    videoDuration: '0:15',
+    faultReport: 'Vehicle prepped, masked and sprayed inside our ventilated spray booth.',
+    repairPerformed: 'Vehicle prepped, masked and sprayed inside our ventilated spray booth.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-02',
+    title: 'Acura MDX Exterior Refinish & Finish Check',
+    vehicle: 'Acura MDX',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/acura-mdx-exterior-refinish.mp4',
+    thumbnailUrl: acuraMdxImg,
+    videoDuration: '0:31',
+    faultReport: 'Exterior refinish completed and the finished vehicle presented outdoors for inspection.',
+    repairPerformed: 'Exterior refinish completed and the finished vehicle presented outdoors for inspection.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-03',
+    title: 'Door Panel Bodywork, Masking & Respray',
+    vehicle: 'SUV',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/door-panel-bodywork-respray.mp4',
+    thumbnailUrl: doorPanelImg,
+    videoDuration: '2:00',
+    faultReport: 'Door and body panel repair, masking and respray, followed by finishing.',
+    repairPerformed: 'Door and body panel repair, masking and respray, followed by finishing.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-04',
+    title: 'Toyota Sienna Body Repair & Repaint',
+    vehicle: 'Toyota Sienna',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/sienna-body-repair-paint.mp4',
+    thumbnailUrl: siennaPaintImg,
+    videoDuration: '0:35',
+    faultReport: 'Body repair and repaint of a Toyota Sienna, finished and delivered looking factory-fresh.',
+    repairPerformed: 'Body repair and repaint of a Toyota Sienna, finished and delivered looking factory-fresh.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-05',
+    title: 'Rear Collision Repair & Full Respray',
+    vehicle: 'Executive Sedan',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/rear-collision-repair-respray.mp4',
+    thumbnailUrl: rearCollisionImg,
+    videoDuration: '1:51',
+    faultReport: 'Rear-end collision repair, panel work and spray booth respray.',
+    repairPerformed: 'Rear-end collision repair, panel work and spray booth respray.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-06',
+    title: 'Jeep Liberty Panel Repair & Full Respray',
+    vehicle: 'Jeep Liberty',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/jeep-liberty-full-respray.mp4',
+    thumbnailUrl: jeepImg,
+    videoDuration: '0:27',
+    faultReport: 'Roof and body panel work with a complete respray.',
+    repairPerformed: 'Roof and body panel work with a complete respray.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-07',
+    title: 'SUV Spray Booth Finishing',
+    vehicle: 'SUV',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/suv-spray-booth-finish.mp4',
+    thumbnailUrl: suvBoothImg,
+    videoDuration: '0:23',
+    faultReport: 'Masked SUV inside the spray booth for a clean, even finish.',
+    repairPerformed: 'Masked SUV inside the spray booth for a clean, even finish.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
+  {
+    id: 'rep-body-vid-08',
+    title: 'Collision Rebuild to Showroom Red Finish',
+    vehicle: 'Hyundai Santa Fe',
+    category: 'paint',
+    mediaType: 'video',
+    mediaUrl: '/videos/rebuild-to-red-santafe.mp4',
+    thumbnailUrl: santaFeImg,
+    videoDuration: '0:36',
+    faultReport: 'Vehicle rebuilt from bare, primed panels to a glossy red finish.',
+    repairPerformed: 'Vehicle rebuilt from bare, primed panels to a glossy red finish.',
+    partsReplaced: [],
+    turnaroundTime: 'Per job',
+    warranty: 'Workshop warranty',
+    date: 'October 2026',
+    technician: 'Naiahautos Body & Paint Team'
+  },
   {
     id: 'rep-dash-vid',
     title: 'Complete Dashboard Assembly & HVAC Re-installation',
