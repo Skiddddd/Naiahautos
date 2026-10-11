@@ -200,7 +200,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
                   </div>
 
                   <div 
-                    className="absolute top-3 right-3 bg-[#0c2a20] text-lime-300 px-2.5 py-0.5 rounded-xl text-[11px] font-mono font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)] border border-emerald-700/60"
+                    className="absolute top-3 right-3 bg-[#14141b] text-lime-300 px-2.5 py-0.5 rounded-xl text-[11px] font-mono font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)] border border-emerald-700/60"
                     style={{ transform: 'translateZ(26px)' }}
                   >
                     Score: {car.inspectionScore}/100
@@ -272,7 +272,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
       )}
 
       {/* Banner for Custom Sourcing: Clean Forest Green & White accent */}
-      <div className="bg-gradient-to-r from-[#0c2a20] to-[#0a281e] text-white border border-emerald-700/60 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+      <div className="bg-gradient-to-r from-[#14141b] to-[#0e0e13] text-white border border-emerald-700/60 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="text-lg font-bold text-white">Can't Find Your Desired Specification?</h3>
           <p className="text-xs text-emerald-100 max-w-xl">

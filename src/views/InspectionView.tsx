@@ -19,7 +19,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 bg-slate-50 text-slate-800">
       
       {/* Header Hero: Deep forest green with lemon highlights */}
-      <div className="bg-gradient-to-b from-[#0c2a20] to-[#08201a] border border-emerald-800 text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-md">
+      <div className="bg-gradient-to-b from-[#14141b] to-[#0e0e13] border border-emerald-800 text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-md">
         <div className="inline-flex items-center gap-2 bg-emerald-800/80 border border-lime-400/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-lime-300">
           <ShieldCheck className="w-4 h-4 text-lime-400" />
           <span>Independent Pre-Purchase Diagnostic Service</span>
@@ -52,7 +52,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent("Hello Naiahautos, I need an urgent pre-purchase inspection in Lagos today.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto py-3.5 px-6 bg-[#0a0a09]/80 hover:bg-[#0a2a21] text-emerald-100 hover:text-white font-bold text-xs rounded-xl border border-emerald-500/40 shadow-[0_3px_0_#011a14] active:translate-y-[2px] transition-all cursor-pointer flex items-center justify-center gap-2"
+            className="w-full sm:w-auto py-3.5 px-6 bg-[#07070a]/80 hover:bg-[#0e0e13] text-emerald-100 hover:text-white font-bold text-xs rounded-xl border border-emerald-500/40 shadow-[0_3px_0_#011a14] active:translate-y-[2px] transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
             <span>Request Instant Inspector Dispatch</span>
@@ -122,7 +122,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             </p>
           </TiltCard>
 
-          <TiltCard maxTilt={7} className="bg-gradient-to-br from-[#0c2a20] to-[#08201a] text-white border border-gold-400 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-[0_12px_24px_rgba(0,0,0,0.3)]">
+          <TiltCard maxTilt={7} className="bg-gradient-to-br from-[#14141b] to-[#0e0e13] text-white border border-gold-400 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-[0_12px_24px_rgba(0,0,0,0.3)]">
             <div className="space-y-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-lime-300">Rapid Delivery</span>
               <h3 className="text-base font-bold text-white">18-Page PDF Inspection Report</h3>

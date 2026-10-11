@@ -28,7 +28,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 bg-slate-50 text-slate-800">
       
       {/* Header Banner: Deep emerald with lime accents */}
-      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-r from-[#0c2a20] to-[#08201a] text-white shadow-lg">
+      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-r from-[#14141b] to-[#0e0e13] text-white shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
           <div className="lg:col-span-7 p-8 sm:p-12 space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-lime-300">
@@ -71,8 +71,8 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
                 (e.target as HTMLImageElement).src = workshopBayDefaultImg;
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0c2a20] via-transparent to-transparent hidden lg:block pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#08201a] via-transparent to-transparent lg:hidden pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#14141b] via-transparent to-transparent hidden lg:block pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e13] via-transparent to-transparent lg:hidden pointer-events-none" />
           </div>
         </div>
       </div>

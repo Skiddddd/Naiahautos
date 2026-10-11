@@ -63,7 +63,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 bg-slate-50 text-slate-800">
       
       {/* Header Banner: Deep Emerald / Lime Header */}
-      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-b from-[#0c2a20] to-[#08201a] p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-lg text-white">
+      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-b from-[#14141b] to-[#0e0e13] p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-lg text-white">
         <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
           Live 17-Digit VIN Decoder & Specification Checker
         </h1>
@@ -125,7 +125,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
                   setVinInput(sample.vin);
                   handleDecode(sample.vin);
                 }}
-                className="px-2.5 py-1 bg-[#06150f]/80 hover:bg-[#0a2a21] hover:text-lime-300 border border-emerald-500/40 rounded-lg text-[11px] font-mono font-bold text-emerald-100 shadow-[0_2px_0_#011a14] active:translate-y-[1px] transition-all cursor-pointer"
+                className="px-2.5 py-1 bg-[#07070a]/80 hover:bg-[#0e0e13] hover:text-lime-300 border border-emerald-500/40 rounded-lg text-[11px] font-mono font-bold text-emerald-100 shadow-[0_2px_0_#011a14] active:translate-y-[1px] transition-all cursor-pointer"
                 title={`${sample.label} (${sample.category})`}
               >
                 {sample.label.split(' ')[0]} {sample.label.split(' ')[1]}
@@ -407,7 +407,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           </div>
 
           {/* Section 5: Cross-Reference with Naiahautos Lagos Services */}
-          <div className="bg-gradient-to-r from-[#0c2a20] to-[#08201a] text-white border border-emerald-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+          <div className="bg-gradient-to-r from-[#14141b] to-[#0e0e13] text-white border border-emerald-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
             <div className="space-y-1.5 text-center md:text-left">
               <h4 className="text-lg font-bold text-white">Next Step: Physical Inspection in Lagos</h4>
               <p className="text-xs text-emerald-100 max-w-xl">
