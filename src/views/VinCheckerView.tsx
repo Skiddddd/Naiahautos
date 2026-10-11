@@ -63,7 +63,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 bg-slate-50 text-slate-800">
       
       {/* Header Banner: Deep Emerald / Lime Header */}
-      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-b from-[#064E3B] to-[#043326] p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-lg text-white">
+      <div className="relative rounded-3xl overflow-hidden border border-emerald-800 bg-gradient-to-b from-[#0c2a20] to-[#08201a] p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-4 shadow-lg text-white">
         <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
           Live 17-Digit VIN Decoder & Specification Checker
         </h1>
@@ -74,9 +74,9 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
 
         {/* Input Bar */}
         <div className="pt-4 max-w-2xl mx-auto">
-          <div className="flex flex-col sm:flex-row gap-2 bg-white p-2 rounded-2xl border border-emerald-300 shadow-[0_12px_30px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.9)] transition-all">
+          <div className="flex flex-col sm:flex-row gap-2 bg-surface p-2 rounded-2xl border border-gold-400/30 shadow-[0_12px_30px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.9)] transition-all">
             <div className="flex-1 relative flex items-center">
-              <Search className="w-5 h-5 text-emerald-800 absolute left-3.5" />
+              <Search className="w-5 h-5 text-gold-300 absolute left-3.5" />
               <input
                 type="text"
                 maxLength={17}
@@ -86,7 +86,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
                   setErrorMsg(null);
                 }}
                 placeholder="Enter 17-digit VIN (e.g. 1HGCR2F83HA123456)..."
-                className="w-full bg-slate-50/80 rounded-xl pl-11 pr-14 py-3 text-sm text-slate-900 font-mono tracking-wider placeholder-slate-400 focus:outline-none uppercase inset-3d"
+                className="w-full bg-slate-50/80 rounded-xl pl-11 pr-14 py-3 text-sm text-slate-900 font-mono tracking-wider placeholder-slate-500 focus:outline-none uppercase inset-3d"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleDecode();
                 }}
@@ -125,7 +125,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
                   setVinInput(sample.vin);
                   handleDecode(sample.vin);
                 }}
-                className="px-2.5 py-1 bg-[#02281e]/80 hover:bg-[#033c2e] hover:text-lime-300 border border-emerald-500/40 rounded-lg text-[11px] font-mono font-bold text-emerald-100 shadow-[0_2px_0_#011a14] active:translate-y-[1px] transition-all cursor-pointer"
+                className="px-2.5 py-1 bg-[#06150f]/80 hover:bg-[#0a2a21] hover:text-lime-300 border border-emerald-500/40 rounded-lg text-[11px] font-mono font-bold text-emerald-100 shadow-[0_2px_0_#011a14] active:translate-y-[1px] transition-all cursor-pointer"
                 title={`${sample.label} (${sample.category})`}
               >
                 {sample.label.split(' ')[0]} {sample.label.split(' ')[1]}
@@ -151,21 +151,21 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
         <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in duration-300">
           
           {/* Top Summary Banner */}
-          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
+          <div className="bg-surface border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6 border-b border-slate-100">
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-gold-300">
                     OEM Homologation Record
                   </span>
                   <span className="text-slate-300">·</span>
-                  <span className="text-[11px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-mono font-bold">
+                  <span className="text-[11px] text-gold-300 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30 font-mono font-bold">
                     OEM Factory Authenticated
                   </span>
                   {checkDigitInfo && (
                     <span className={`text-[11px] px-2 py-0.5 rounded border font-mono font-medium ${
                       checkDigitInfo.isValid 
-                        ? 'text-emerald-800 bg-emerald-50 border-emerald-200' 
+                        ? 'text-gold-300 bg-gold-400/10 border-gold-400/30' 
                         : 'text-amber-800 bg-amber-50 border-amber-200'
                     }`}>
                       Check Digit (Pos 9): {checkDigitInfo.actualCheckDigit} {checkDigitInfo.isValid ? '(Valid Modulus 11)' : '(Regional Format)'}
@@ -183,9 +183,9 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
                   </span>
                   <button
                     onClick={() => handleCopy(decodedData.vin)}
-                    className="flex items-center gap-1 hover:text-emerald-700 transition-colors cursor-pointer text-[11px] font-semibold"
+                    className="flex items-center gap-1 hover:text-gold-300 transition-colors cursor-pointer text-[11px] font-semibold"
                   >
-                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copied ? <Check className="w-3.5 h-3.5 text-gold-300" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{copied ? 'Copied' : 'Copy VIN'}</span>
                   </button>
                 </div>
@@ -215,7 +215,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
               <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Assembly Plant Country</span>
                 <span className="text-slate-900 font-bold flex items-center gap-1.5 text-sm">
-                  <MapPin className="w-4 h-4 text-emerald-600" />
+                  <MapPin className="w-4 h-4 text-gold-300" />
                   {decodedData.plantCountry || 'Global Assembly'}
                 </span>
                 <span className="text-[11px] text-slate-500 block">
@@ -226,7 +226,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
               <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Displacement & Cylinders</span>
                 <span className="text-slate-900 font-bold flex items-center gap-1.5 text-sm">
-                  <Cpu className="w-4 h-4 text-emerald-600" />
+                  <Cpu className="w-4 h-4 text-gold-300" />
                   {decodedData.displacementL ? `${decodedData.displacementL} Liters` : 'Standard'}
                 </span>
                 <span className="text-[11px] text-slate-500 block">
@@ -237,7 +237,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
               <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Body & Platform</span>
                 <span className="text-slate-900 font-bold flex items-center gap-1.5 text-sm">
-                  <Car className="w-4 h-4 text-emerald-600" />
+                  <Car className="w-4 h-4 text-gold-300" />
                   {decodedData.bodyClass || decodedData.vehicleType || 'Passenger Vehicle'}
                 </span>
                 <span className="text-[11px] text-slate-500 block">
@@ -248,7 +248,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
               <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Primary Fuel Type</span>
                 <span className="text-slate-900 font-bold flex items-center gap-1.5 text-sm">
-                  <Gauge className="w-4 h-4 text-emerald-600" />
+                  <Gauge className="w-4 h-4 text-gold-300" />
                   {decodedData.fuelType || 'Gasoline'}
                 </span>
                 <span className="text-[11px] text-slate-500 block font-mono">
@@ -262,9 +262,9 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Manufacturing & Origin Dossier */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">
+            <div className="bg-surface border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center">
                   <FileText className="w-4 h-4" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900">Manufacturer & Chassis Origin</h3>
@@ -291,7 +291,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
                 </div>
                 <div className="py-2.5 flex justify-between">
                   <span className="text-slate-500">Steering Configuration</span>
-                  <span className="text-emerald-700 font-bold">
+                  <span className="text-gold-300 font-bold">
                     {decodedData.steeringLocation || 'Left-Hand Drive (LHD Standard for Nigeria)'}
                   </span>
                 </div>
@@ -299,9 +299,9 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
             </div>
 
             {/* Powertrain & Mechanical Specifications */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">
+            <div className="bg-surface border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center">
                   <Cpu className="w-4 h-4" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900">Powertrain & Mechanical Specs</h3>
@@ -333,11 +333,11 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           </div>
 
           {/* Section 3: Safety & Systems Verification */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">
+          <div className="bg-surface border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center">
-                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center">
+                  <ShieldCheck className="w-4 h-4 text-gold-300" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900">Active Safety & Restraint Homologation</h3>
               </div>
@@ -347,32 +347,32 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
               <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Anti-Lock Brakes (ABS)</span>
-                <span className="text-emerald-700 font-bold flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-gold-300 font-bold flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-300" />
                   {decodedData.safetyFeatures.abs || 'Standard'}
                 </span>
               </div>
 
               <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Stability Control (ESC)</span>
-                <span className="text-emerald-700 font-bold flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-gold-300 font-bold flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-300" />
                   {decodedData.safetyFeatures.esc || 'Standard'}
                 </span>
               </div>
 
               <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Tire Pressure (TPMS)</span>
-                <span className="text-emerald-700 font-bold flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-gold-300 font-bold flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-300" />
                   {decodedData.safetyFeatures.tpms || 'Direct / Electronic'}
                 </span>
               </div>
 
               <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-1">
                 <span className="text-slate-500 block text-[11px]">Airbag Locations</span>
-                <span className="text-emerald-700 font-bold flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-gold-300 font-bold flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-300" />
                   Front, Side, Curtain
                 </span>
               </div>
@@ -380,13 +380,13 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           </div>
 
           {/* Section 4: Expandable Full Raw Variables */}
-          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <div className="bg-surface border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
             <button
               onClick={() => setShowRawVars(!showRawVars)}
-              className="w-full p-4 px-6 flex items-center justify-between text-xs font-bold text-slate-700 hover:text-emerald-700 hover:bg-slate-50 transition-colors cursor-pointer"
+              className="w-full p-4 px-6 flex items-center justify-between text-xs font-bold text-slate-700 hover:text-gold-300 hover:bg-slate-50 transition-colors cursor-pointer"
             >
               <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4 text-emerald-600" />
+                <Layers className="w-4 h-4 text-gold-300" />
                 <span>View Full Raw OEM Telemetry ({decodedData.allRawVariables.length} Parameters Decoded)</span>
               </div>
               {showRawVars ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -396,7 +396,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
               <div className="p-6 pt-2 border-t border-slate-100 max-h-96 overflow-y-auto space-y-2 bg-slate-50">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                   {decodedData.allRawVariables.map((item, idx) => (
-                    <div key={idx} className="bg-white p-2 rounded border border-slate-200 flex justify-between items-start gap-2">
+                    <div key={idx} className="bg-surface p-2 rounded border border-slate-200 flex justify-between items-start gap-2">
                       <span className="text-slate-500">{item.variable}:</span>
                       <span className="text-slate-900 font-mono text-right font-semibold">{item.value}</span>
                     </div>
@@ -407,7 +407,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           </div>
 
           {/* Section 5: Cross-Reference with Naiahautos Lagos Services */}
-          <div className="bg-gradient-to-r from-[#064E3B] to-[#043326] text-white border border-emerald-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+          <div className="bg-gradient-to-r from-[#0c2a20] to-[#08201a] text-white border border-emerald-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
             <div className="space-y-1.5 text-center md:text-left">
               <h4 className="text-lg font-bold text-white">Next Step: Physical Inspection in Lagos</h4>
               <p className="text-xs text-emerald-100 max-w-xl">
@@ -429,9 +429,9 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
       )}
 
       {/* Educational Guide: ISO 3779 VIN */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+      <div className="bg-surface border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+          <span className="text-xs font-bold uppercase tracking-wider text-gold-300">
             Automotive Technical Knowledge
           </span>
           <h3 className="text-xl font-bold text-slate-900 tracking-tight mt-1">
@@ -444,7 +444,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-            <div className="font-mono text-emerald-700 font-bold text-sm">Positions 1 - 3: WMI</div>
+            <div className="font-mono text-gold-300 font-bold text-sm">Positions 1 - 3: WMI</div>
             <h4 className="font-bold text-slate-900">World Manufacturer Identifier</h4>
             <p className="text-slate-600 leading-relaxed text-[11px]">
               Identifies country of origin and automotive manufacturer. E.g., <strong>1HG</strong> = Honda USA, <strong>WBA</strong> = BMW Germany, <strong>2T2</strong> = Lexus Canada, <strong>SAL</strong> = Land Rover UK.
@@ -452,7 +452,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           </div>
 
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-            <div className="font-mono text-emerald-700 font-bold text-sm">Positions 4 - 9: VDS</div>
+            <div className="font-mono text-gold-300 font-bold text-sm">Positions 4 - 9: VDS</div>
             <h4 className="font-bold text-slate-900">Vehicle Descriptor Section</h4>
             <p className="text-slate-600 leading-relaxed text-[11px]">
               Encodes model line, body style, engine displacement, transmission, and restraint types. <strong>Position 9</strong> is the mathematical check digit computed via Modulus 11 algorithm.
@@ -460,7 +460,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           </div>
 
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-            <div className="font-mono text-emerald-700 font-bold text-sm">Positions 10 - 17: VIS</div>
+            <div className="font-mono text-gold-300 font-bold text-sm">Positions 10 - 17: VIS</div>
             <h4 className="font-bold text-slate-900">Vehicle Identifier Section</h4>
             <p className="text-slate-600 leading-relaxed text-[11px]">
               <strong>Position 10</strong> specifies model year (e.g., N=2022, P=2023). Position 11 represents assembly plant location, and 12-17 represent the unique vehicle production serial sequence.
