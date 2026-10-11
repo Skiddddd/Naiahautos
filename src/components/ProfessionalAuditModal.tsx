@@ -23,7 +23,7 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
       title: "Clean Green & White Theme Architecture",
       icon: Palette,
       status: "Compliant & Applied",
-      details: "Styled with an executive British racing/forest green (#064E3B) header with lemon-lime accents, transitioning cleanly into crisp, high-readability white cards, modern slate typography, and emerald badges. Designed for maximum trust and daylight visibility."
+      details: "Styled with an executive British racing/forest green (#0c2a20) header with lemon-lime accents, transitioning cleanly into crisp, high-readability white cards, modern slate typography, and emerald badges. Designed for maximum trust and daylight visibility."
     },
     {
       title: "Real-World Dealership Trust Architecture",
@@ -58,13 +58,13 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
       <div 
-        className="bg-white border border-slate-200 rounded-2xl w-full max-w-3xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-slate-800"
+        className="bg-surface border border-slate-200 rounded-2xl w-full max-w-3xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-slate-800"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header: Forest Green */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#064E3B] text-white">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-emerald-800 bg-[#0c2a20] text-white">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-lime-400 text-emerald-950 flex items-center justify-center font-bold">
               <CheckCircle2 className="w-5 h-5" />
@@ -89,10 +89,10 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {/* Summary Box */}
-          <div className="bg-gradient-to-r from-emerald-50 via-lime-50/50 to-white border border-emerald-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="bg-gradient-to-r from-emerald-50 via-lime-50/50 to-surface border border-gold-400/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-emerald-800">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+              <div className="flex items-center gap-2 text-xs font-bold text-gold-300">
+                <CheckCircle2 className="w-4 h-4 text-gold-300" />
                 <span>OVERALL RATING: PRODUCTION-GRADE PROFESSIONAL (100/100)</span>
               </div>
               <h3 className="text-sm font-bold text-slate-900 mt-1">
@@ -114,7 +114,7 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
                 const Icon = item.icon;
                 return (
                   <div key={idx} className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row items-start gap-4">
-                    <div className="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="flex-1 space-y-1">
@@ -122,7 +122,7 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
                         <h5 className="text-xs sm:text-sm font-bold text-slate-900">
                           {item.title}
                         </h5>
-                        <span className="text-[11px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded border border-emerald-200 w-fit">
+                        <span className="text-[11px] font-bold text-gold-300 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30 w-fit">
                           {item.status}
                         </span>
                       </div>
@@ -141,7 +141,7 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
         <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex justify-end">
           <button
             onClick={onClose}
-            className="py-2 px-5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer"
+            className="py-2 px-5 bg-gold-400 hover:bg-gold-300 text-ink-950 font-bold text-xs rounded-lg transition-colors cursor-pointer"
           >
             Close Audit
           </button>
