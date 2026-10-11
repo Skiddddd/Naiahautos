@@ -7,49 +7,49 @@
    view picks up the new look without touching photos or videos.
    ========================================================================= */
 @theme {
-  --font-sans: 'Manrope', 'Roboto', Arial, 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-sans: 'Inter', 'Roboto', Arial, 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Playfair Display', 'Roboto', 'Times New Roman', Georgia, serif;
 
   /* Surfaces & text (slate scale inverted for a dark site) */
-  --color-slate-50: #0a0a09;
-  --color-slate-100: #12110f;
-  --color-slate-200: #2a2721;
-  --color-slate-300: #3b372e;
-  --color-slate-400: #8c8677;
-  --color-slate-500: #a8a291;
-  --color-slate-600: #bdb8a8;
-  --color-slate-700: #d3cebf;
-  --color-slate-800: #e8e3d5;
-  --color-slate-900: #f4efe3;
-  --color-slate-950: #fbf8f0;
+  --color-slate-50: #07070a;
+  --color-slate-100: #0e0e13;
+  --color-slate-200: #23232b;
+  --color-slate-300: #34343e;
+  --color-slate-400: #8d8b85;
+  --color-slate-500: #a29f98;
+  --color-slate-600: #bcb9b2;
+  --color-slate-700: #d2d0ca;
+  --color-slate-800: #e6e4df;
+  --color-slate-900: #ecebe7;
+  --color-slate-950: #f7f6f2;
 
-  --color-surface: #15130f;
+  --color-surface: #14141b;
 
   /* Racing green: used only for deep panels and borders */
-  --color-emerald-50: #0b2e22;
-  --color-emerald-100: #0f3b2c;
-  --color-emerald-200: #cfd9cc;
-  --color-emerald-300: #8fb5a2;
-  --color-emerald-400: #4f8a70;
-  --color-emerald-500: #2f6b52;
-  --color-emerald-600: #1f5640;
-  --color-emerald-700: #164633;
-  --color-emerald-800: #0e3426;
-  --color-emerald-900: #0a281d;
-  --color-emerald-950: #07130e;
+  --color-emerald-50: #14141b;
+  --color-emerald-100: #1a1a22;
+  --color-emerald-200: #d2d0ca;
+  --color-emerald-300: #9a98a0;
+  --color-emerald-400: #6f6e78;
+  --color-emerald-500: #4a4a54;
+  --color-emerald-600: #34343e;
+  --color-emerald-700: #23232b;
+  --color-emerald-800: #14141b;
+  --color-emerald-900: #0e0e13;
+  --color-emerald-950: #07070a;
 
   /* Lime becomes champagne gold */
   --color-lime-50: #faf5e8;
   --color-lime-200: #efdfb4;
-  --color-lime-300: #e6cf94;
-  --color-lime-400: #d4b36a;
-  --color-lime-500: #b8934a;
-  --color-lime-600: #96752f;
+  --color-lime-300: #f3dca4;
+  --color-lime-400: #d4af6a;
+  --color-lime-500: #a98a45;
+  --color-lime-600: #8a6a2f;
 
-  --color-gold-300: #e6cf94;
-  --color-gold-400: #d4b36a;
-  --color-gold-500: #b8934a;
-  --color-ink-950: #0a0a09;
+  --color-gold-300: #f3dca4;
+  --color-gold-400: #d4af6a;
+  --color-gold-500: #a98a45;
+  --color-ink-950: #07070a;
 
   /* Tailored, sharper corners */
   --radius-lg: 0.1875rem;
@@ -62,7 +62,7 @@
    Universal Naira Sign (₦ U+20A6) Glyph Fallback Configuration
    ========================================================================= */
 @font-face {
-  font-family: 'Manrope';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 100 900;
   src: local('Roboto'), local('Arial'), local('Segoe UI'), local('Helvetica Neue'), local('Tahoma'),
@@ -70,7 +70,7 @@
   unicode-range: U+20A6;
 }
 @font-face {
-  font-family: 'Cormorant Garamond';
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 100 900;
   src: local('Roboto'), local('Arial'), local('Segoe UI'),
@@ -87,11 +87,11 @@
 }
 
 @layer base {
-  html { background: #0a0a09; color-scheme: dark; }
+  html { background: #07070a; color-scheme: dark; }
   body {
     font-family: var(--font-sans);
-    background: #0a0a09;
-    color: #e8e3d5;
+    background: #07070a;
+    color: #e6e4df;
     letter-spacing: 0.005em;
   }
   h1, h2, h3 {
@@ -102,8 +102,8 @@
   }
   h1 { font-size: clamp(2.6rem, 6vw, 4.75rem); }
   h2 { font-size: clamp(2rem, 4vw, 3rem); }
-  ::selection { background: rgba(212, 179, 106, 0.3); color: #fbf8f0; }
-  :focus-visible { outline: 2px solid #d4b36a; outline-offset: 2px; }
+  ::selection { background: rgba(212, 175, 106, 0.3); color: #f7f6f2; }
+  :focus-visible { outline: 2px solid #d4af6a; outline-offset: 2px; }
   input, select, textarea { color-scheme: dark; }
 }
 
@@ -126,53 +126,59 @@
 
 /* Shadows: deep black with a gold hairline rim */
 .shadow-3d {
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 0 0 1px rgba(212, 179, 106, 0.08), 0 18px 40px -12px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 0 0 1px rgba(212, 175, 106, 0.08), 0 18px 40px -12px rgba(0, 0, 0, 0.7);
 }
 .shadow-3d-hover {
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 0 1px rgba(212, 179, 106, 0.4), 0 28px 60px -14px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 0 1px rgba(212, 175, 106, 0.4), 0 28px 60px -14px rgba(0, 0, 0, 0.85);
 }
 .shadow-3d-dark {
-  box-shadow: 0 0 0 1px rgba(212, 179, 106, 0.18), 0 18px 40px -10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 0 1px rgba(212, 175, 106, 0.18), 0 18px 40px -10px rgba(0, 0, 0, 0.8);
 }
 .shadow-3d-floating {
-  box-shadow: 0 0 0 1px rgba(212, 179, 106, 0.3), 0 24px 50px -12px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 0 1px rgba(212, 175, 106, 0.3), 0 24px 50px -12px rgba(0, 0, 0, 0.85);
 }
 
 /* Buttons: flat gold, outlined gold, ivory */
 .btn-3d-lime {
-  background: linear-gradient(180deg, #e6cf94 0%, #d4b36a 100%);
-  color: #0a0a09;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  background: linear-gradient(180deg, #f3dca4 0%, #d4af6a 100%);
+  color: #07070a;
   font-weight: 700;
-  border: 1px solid #b8934a;
-  box-shadow: 0 8px 22px -8px rgba(212, 179, 106, 0.45);
+  border: 1px solid #a98a45;
+  box-shadow: 0 8px 22px -8px rgba(212, 175, 106, 0.45);
   transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 .btn-3d-lime:hover {
   background: linear-gradient(180deg, #f0dba5 0%, #e0c07a 100%);
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px -8px rgba(212, 179, 106, 0.6);
+  box-shadow: 0 12px 28px -8px rgba(212, 175, 106, 0.6);
 }
 .btn-3d-lime:active { transform: translateY(0); }
 
 .btn-3d-emerald {
-  background: rgba(212, 179, 106, 0.06);
-  color: #e6cf94;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  background: rgba(212, 175, 106, 0.06);
+  color: #f3dca4;
   font-weight: 700;
-  border: 1px solid rgba(212, 179, 106, 0.55);
+  border: 1px solid rgba(212, 175, 106, 0.55);
   transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 .btn-3d-emerald:hover {
-  background: rgba(212, 179, 106, 0.16);
-  color: #f4efe3;
+  background: rgba(212, 175, 106, 0.16);
+  color: #ecebe7;
   transform: translateY(-1px);
 }
 .btn-3d-emerald:active { transform: translateY(0); }
 
 .btn-3d-white {
-  background: #f4efe3;
-  color: #0a0a09;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  background: #ecebe7;
+  color: #07070a;
   font-weight: 700;
-  border: 1px solid #d3cebf;
+  border: 1px solid #d2d0ca;
   transition: background 0.2s ease, transform 0.15s ease;
 }
 .btn-3d-white:hover { background: #ffffff; transform: translateY(-1px); }
@@ -184,18 +190,18 @@
   border: 1px solid transparent;
 }
 .nav-pill-3d:hover {
-  background: rgba(212, 179, 106, 0.1);
-  border-color: rgba(212, 179, 106, 0.3);
+  background: rgba(212, 175, 106, 0.1);
+  border-color: rgba(212, 175, 106, 0.3);
 }
 .nav-pill-3d-active {
-  background: #d4b36a !important;
-  color: #0a0a09 !important;
+  background: #d4af6a !important;
+  color: #07070a !important;
   font-weight: 800;
-  border: 1px solid #b8934a !important;
+  border: 1px solid #a98a45 !important;
 }
 
 .inset-3d {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(212, 179, 106, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(212, 175, 106, 0.12);
 }
 
 .font-odometer {
@@ -211,11 +217,11 @@
   width: 1.55rem;
   height: 2.25rem;
   background: linear-gradient(180deg, #050504 0%, #1a1813 50%, #050504 100%);
-  border: 1px solid rgba(212, 179, 106, 0.4);
+  border: 1px solid rgba(212, 175, 106, 0.4);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.4);
   border-radius: 3px;
-  color: #e6cf94;
+  color: #f3dca4;
   font-weight: 800;
-  text-shadow: 0 0 8px rgba(212, 179, 106, 0.5);
+  text-shadow: 0 0 8px rgba(212, 175, 106, 0.5);
 }
 .odometer-digit.dimmed { color: #5a5242; text-shadow: none; opacity: 0.5; }

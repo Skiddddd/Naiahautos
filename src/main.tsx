@@ -2,6 +2,7 @@ import {StrictMode, Component, ReactNode, ErrorInfo} from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+import './styles/prestige.css';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -43,7 +44,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 this.setState({ hasError: false });
                 window.location.reload();
               }}
-              className="py-2.5 px-6 bg-[#0c2a20] hover:bg-[#0a281e] text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-colors"
+              className="py-2.5 px-6 bg-[#14141b] hover:bg-[#0e0e13] text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-colors"
             >
               Reload Showroom
             </button>

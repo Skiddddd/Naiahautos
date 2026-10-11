@@ -80,7 +80,7 @@ export default function App() {
       />
 
       {/* Main Page View Content */}
-      <main className="flex-1 pb-16 overflow-hidden">
+      <main className={`flex-1 overflow-hidden ${activeTab === 'home' || activeTab === 'services' ? '' : 'pt-28'}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab === 'services' ? 'home' : activeTab}
