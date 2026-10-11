@@ -69,7 +69,7 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
       {/* Background backdrop on mobile/small viewports when open */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-40 bg-slate-900/30 backdrop-blur-[2px] sm:bg-transparent sm:backdrop-blur-none transition-opacity"
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-[2px] sm:bg-transparent sm:backdrop-blur-none transition-opacity"
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
@@ -88,18 +88,18 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 16 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="pointer-events-auto mb-2.5 sm:mb-3 w-[calc(100vw-2rem)] sm:w-[380px] max-w-[380px] max-h-[calc(100dvh-5.5rem)] sm:max-h-[calc(100dvh-6.5rem)] flex flex-col bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-slate-800"
+              className="pointer-events-auto mb-2.5 sm:mb-3 w-[calc(100vw-2rem)] sm:w-[380px] max-w-[380px] max-h-[calc(100dvh-5.5rem)] sm:max-h-[calc(100dvh-6.5rem)] flex flex-col bg-surface border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-slate-800"
               role="dialog"
               aria-label="Naiahautos Support Chat"
             >
             {/* Header: Forest Green - Pinned & Never Shrinks (shrink-0) */}
-            <div className="shrink-0 bg-[#064E3B] px-4 py-3 sm:py-3.5 border-b border-emerald-800 flex items-center justify-between text-white">
+            <div className="shrink-0 bg-[#0c2a20] px-4 py-3 sm:py-3.5 border-b border-emerald-800 flex items-center justify-between text-white">
               <div className="flex items-center gap-3">
                 <div className="relative shrink-0">
                   <div className="w-9 h-9 rounded-full bg-lime-400 text-emerald-950 font-extrabold text-xs flex items-center justify-center shadow-inner">
                     NA
                   </div>
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 rounded-full ring-2 ring-[#064E3B]" />
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 rounded-full ring-2 ring-[#0c2a20]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white flex items-center gap-1.5 leading-tight">
@@ -126,9 +126,9 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
             {/* Scrollable Body: dynamically scrolls internally so all content is reachable without overflowing viewport */}
             <div className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-4 space-y-3 text-xs overscroll-contain">
               {/* Trust Badge */}
-              <div className="bg-emerald-50/90 p-2.5 rounded-xl border border-emerald-200/80 text-[11px] text-emerald-900 space-y-0.5">
-                <div className="flex items-center gap-1.5 text-emerald-800 font-bold">
-                  <Shield className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+              <div className="bg-gold-400/10 p-2.5 rounded-xl border border-gold-400/30 text-[11px] text-gold-300 space-y-0.5">
+                <div className="flex items-center gap-1.5 text-gold-300 font-bold">
+                  <Shield className="w-3.5 h-3.5 text-gold-300 shrink-0" />
                   Direct Verified Showroom Channel
                 </div>
                 <p className="text-emerald-800/80 leading-relaxed">
@@ -146,10 +146,10 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
                     <button
                       key={idx}
                       onClick={() => handleSendWhatsApp(prompt)}
-                      className="w-full text-left text-xs bg-slate-50 hover:bg-emerald-50 hover:border-emerald-300 border border-slate-200 text-slate-700 p-2.5 rounded-lg transition-all cursor-pointer flex items-center justify-between group shadow-2xs"
+                      className="w-full text-left text-xs bg-slate-50 hover:bg-gold-400/10 hover:border-gold-400/30 border border-slate-200 text-slate-700 p-2.5 rounded-lg transition-all cursor-pointer flex items-center justify-between group shadow-2xs"
                     >
                       <span className="line-clamp-2 pr-2 leading-relaxed">{prompt}</span>
-                      <Send className="w-3.5 h-3.5 text-emerald-600 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />
+                      <Send className="w-3.5 h-3.5 text-gold-300 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />
                     </button>
                   ))}
                 </div>
@@ -166,12 +166,12 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
                     onChange={(e) => setCustomMessage(e.target.value)}
                     placeholder="Type car model, VIN, or question..."
                     rows={2}
-                    className="w-full bg-slate-50 hover:bg-white focus:bg-white border border-slate-300 rounded-lg p-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-colors resize-none shadow-xs"
+                    className="w-full bg-slate-50 hover:bg-surface focus:bg-surface border border-slate-300 rounded-lg p-2.5 text-xs text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400/50 transition-colors resize-none shadow-xs"
                   />
                 </div>
                 <button
                   onClick={() => handleSendWhatsApp(customMessage)}
-                  className="w-full py-2.5 px-4 bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white text-xs font-bold rounded-lg shadow-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  className="w-full py-2.5 px-4 bg-gold-400 hover:bg-gold-300 text-ink-950 text-xs font-bold rounded-lg shadow-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300 shrink-0" />
                   <span>Start Chat on WhatsApp</span>
@@ -180,8 +180,8 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
 
               {/* Active Phone Display */}
               <div className="text-[11px] text-center text-slate-500 pt-0.5 space-y-0.5">
-                <div>Active WhatsApp: <span className="font-mono text-emerald-700 font-semibold">{DEALERSHIP_CONFIG.whatsappDisplay}</span></div>
-                <div>Direct Telephone Line: <a href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`} className="font-mono text-slate-700 hover:text-emerald-700 font-semibold underline">{DEALERSHIP_CONFIG.phoneDisplay}</a></div>
+                <div>Active WhatsApp: <span className="font-mono text-gold-300 font-semibold">{DEALERSHIP_CONFIG.whatsappDisplay}</span></div>
+                <div>Direct Telephone Line: <a href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`} className="font-mono text-slate-700 hover:text-gold-300 font-semibold underline">{DEALERSHIP_CONFIG.phoneDisplay}</a></div>
               </div>
             </div>
           </motion.div>
@@ -207,11 +207,11 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2.5 bg-white hover:bg-slate-50 border border-slate-200/90 text-slate-800 font-bold py-2 px-3.5 sm:px-4 rounded-full shadow-[0_8px_25px_rgba(0,0,0,0.15)] cursor-pointer group"
+          className="flex items-center gap-2.5 bg-surface hover:bg-slate-50 border border-slate-200/90 text-slate-800 font-bold py-2 px-3.5 sm:px-4 rounded-full shadow-[0_8px_25px_rgba(0,0,0,0.15)] cursor-pointer group"
           aria-label={isOpen ? "Close WhatsApp Chat" : "Open WhatsApp Chat"}
           aria-expanded={isOpen}
         >
-          <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-emerald-800 whitespace-nowrap">
+          <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-gold-300 whitespace-nowrap">
             Message on Whatsapp
           </span>
           <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs">
