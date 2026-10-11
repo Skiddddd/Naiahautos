@@ -1,237 +1,201 @@
 @import "tailwindcss";
 
 /* =========================================================================
+   Naiahautos — dark luxury theme
+   Obsidian base, racing-green panels, champagne gold accents, bone text.
+   The existing slate/emerald/lime utility classes are remapped here so every
+   view picks up the new look without touching photos or videos.
+   ========================================================================= */
+@theme {
+  --font-sans: 'Manrope', 'Roboto', Arial, 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+
+  /* Surfaces & text (slate scale inverted for a dark site) */
+  --color-slate-50: #0a0a09;
+  --color-slate-100: #12110f;
+  --color-slate-200: #2a2721;
+  --color-slate-300: #3b372e;
+  --color-slate-400: #8c8677;
+  --color-slate-500: #a8a291;
+  --color-slate-600: #bdb8a8;
+  --color-slate-700: #d3cebf;
+  --color-slate-800: #e8e3d5;
+  --color-slate-900: #f4efe3;
+  --color-slate-950: #fbf8f0;
+
+  --color-surface: #15130f;
+
+  /* Racing green: used only for deep panels and borders */
+  --color-emerald-50: #0b2e22;
+  --color-emerald-100: #0f3b2c;
+  --color-emerald-200: #cfd9cc;
+  --color-emerald-300: #8fb5a2;
+  --color-emerald-400: #4f8a70;
+  --color-emerald-500: #2f6b52;
+  --color-emerald-600: #1f5640;
+  --color-emerald-700: #164633;
+  --color-emerald-800: #0e3426;
+  --color-emerald-900: #0a281d;
+  --color-emerald-950: #07130e;
+
+  /* Lime becomes champagne gold */
+  --color-lime-50: #faf5e8;
+  --color-lime-200: #efdfb4;
+  --color-lime-300: #e6cf94;
+  --color-lime-400: #d4b36a;
+  --color-lime-500: #b8934a;
+  --color-lime-600: #96752f;
+
+  --color-gold-300: #e6cf94;
+  --color-gold-400: #d4b36a;
+  --color-gold-500: #b8934a;
+  --color-ink-950: #0a0a09;
+
+  /* Tailored, sharper corners */
+  --radius-lg: 0.1875rem;
+  --radius-xl: 0.25rem;
+  --radius-2xl: 0.3125rem;
+  --radius-3xl: 0.4375rem;
+}
+
+/* =========================================================================
    Universal Naira Sign (₦ U+20A6) Glyph Fallback Configuration
-   Prevents missing glyph tofu (□) across Windows, Android, Linux, and iOS
    ========================================================================= */
 @font-face {
-  font-family: 'Plus Jakarta Sans';
+  font-family: 'Manrope';
   font-style: normal;
   font-weight: 100 900;
-  src: local('Roboto'),
-       local('Arial'),
-       local('Segoe UI'),
-       local('Helvetica Neue'),
-       local('Tahoma'),
+  src: local('Roboto'), local('Arial'), local('Segoe UI'), local('Helvetica Neue'), local('Tahoma'),
        url('https://fonts.gstatic.com/l/font?kit=KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bWmTmgw8FPo&skey=a0a0114a1dcab3ac&v=v51') format('truetype');
   unicode-range: U+20A6;
 }
-
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 100 900;
+  src: local('Roboto'), local('Arial'), local('Segoe UI'),
+       url('https://fonts.gstatic.com/l/font?kit=KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bWmTmgw8FPo&skey=a0a0114a1dcab3ac&v=v51') format('truetype');
+  unicode-range: U+20A6;
+}
 @font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 100 900;
-  src: local('Roboto'),
-       local('Arial'),
-       local('Segoe UI'),
-       local('Consolas'),
+  src: local('Roboto'), local('Arial'), local('Segoe UI'), local('Consolas'),
        url('https://fonts.gstatic.com/l/font?kit=KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bWmTmgw8FPo&skey=a0a0114a1dcab3ac&v=v51') format('truetype');
   unicode-range: U+20A6;
 }
 
 @layer base {
+  html { background: #0a0a09; color-scheme: dark; }
   body {
-    font-family: 'Plus Jakarta Sans', 'Roboto', Arial, 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
+    background: #0a0a09;
+    color: #e8e3d5;
+    letter-spacing: 0.005em;
   }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.75rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); }
+  ::selection { background: rgba(212, 179, 106, 0.3); color: #fbf8f0; }
+  :focus-visible { outline: 2px solid #d4b36a; outline-offset: 2px; }
+  input, select, textarea { color-scheme: dark; }
 }
 
-/* 3D Perspective & Spatial Depth Utilities */
-.perspective-800 {
-  perspective: 800px;
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-.perspective-1000 {
-  perspective: 1000px;
-}
+/* 3D perspective utilities (kept: TiltCard depends on them) */
+.perspective-800 { perspective: 800px; }
+.perspective-1000 { perspective: 1000px; }
+.perspective-1500 { perspective: 1500px; }
+.transform-style-3d { transform-style: preserve-3d; }
+.translate-z-2 { transform: translateZ(8px); }
+.translate-z-4 { transform: translateZ(16px); }
+.translate-z-6 { transform: translateZ(24px); }
+.translate-z-8 { transform: translateZ(32px); }
+.translate-z-12 { transform: translateZ(48px); }
+.translate-z-16 { transform: translateZ(64px); }
+.backface-hidden { backface-visibility: hidden; }
 
-.perspective-1500 {
-  perspective: 1500px;
-}
-
-.transform-style-3d {
-  transform-style: preserve-3d;
-}
-
-.translate-z-2 {
-  transform: translateZ(8px);
-}
-
-.translate-z-4 {
-  transform: translateZ(16px);
-}
-
-.translate-z-6 {
-  transform: translateZ(24px);
-}
-
-.translate-z-8 {
-  transform: translateZ(32px);
-}
-
-.translate-z-12 {
-  transform: translateZ(48px);
-}
-
-.translate-z-16 {
-  transform: translateZ(64px);
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-/* 3D Multi-Layered Realistic Drop Shadows & Specular Rims */
+/* Shadows: deep black with a gold hairline rim */
 .shadow-3d {
-  box-shadow: 
-    0 1px 1px rgba(0, 0, 0, 0.04),
-    0 4px 10px rgba(0, 0, 0, 0.06),
-    0 16px 32px rgba(6, 78, 59, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 0 0 1px rgba(212, 179, 106, 0.08), 0 18px 40px -12px rgba(0, 0, 0, 0.7);
 }
-
 .shadow-3d-hover {
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.06),
-    0 16px 30px rgba(0, 0, 0, 0.08),
-    0 32px 64px rgba(6, 78, 59, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 0 1px rgba(212, 179, 106, 0.4), 0 28px 60px -14px rgba(0, 0, 0, 0.85);
 }
-
 .shadow-3d-dark {
-  box-shadow: 
-    0 10px 30px -5px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.12),
-    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 1px rgba(212, 179, 106, 0.18), 0 18px 40px -10px rgba(0, 0, 0, 0.8);
 }
-
 .shadow-3d-floating {
-  box-shadow:
-    0 20px 40px -10px rgba(4, 62, 47, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 1px rgba(212, 179, 106, 0.3), 0 24px 50px -12px rgba(0, 0, 0, 0.85);
 }
 
-/* 3D Physical Tactile Buttons (Compress On Click) */
+/* Buttons: flat gold, outlined gold, ivory */
 .btn-3d-lime {
-  background: linear-gradient(180deg, #bef264 0%, #a3e635 100%);
-  color: #022c22;
+  background: linear-gradient(180deg, #e6cf94 0%, #d4b36a 100%);
+  color: #0a0a09;
   font-weight: 700;
-  box-shadow: 
-    0 4px 0 #4d7c0f,
-    0 8px 16px rgba(101, 163, 13, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.4, 1);
-  border: 1px solid #84cc16;
+  border: 1px solid #b8934a;
+  box-shadow: 0 8px 22px -8px rgba(212, 179, 106, 0.45);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
-
 .btn-3d-lime:hover {
-  background: linear-gradient(180deg, #d9f99d 0%, #bef264 100%);
+  background: linear-gradient(180deg, #f0dba5 0%, #e0c07a 100%);
   transform: translateY(-1px);
-  box-shadow: 
-    0 5px 0 #4d7c0f,
-    0 12px 20px rgba(101, 163, 13, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 28px -8px rgba(212, 179, 106, 0.6);
 }
-
-.btn-3d-lime:active {
-  transform: translateY(3px);
-  box-shadow: 
-    0 1px 0 #4d7c0f,
-    0 2px 4px rgba(101, 163, 13, 0.25),
-    inset 0 2px 2px rgba(0, 0, 0, 0.1);
-}
+.btn-3d-lime:active { transform: translateY(0); }
 
 .btn-3d-emerald {
-  background: linear-gradient(180deg, #047857 0%, #064e3b 100%);
-  color: #ffffff;
+  background: rgba(212, 179, 106, 0.06);
+  color: #e6cf94;
   font-weight: 700;
-  box-shadow: 
-    0 4px 0 #022c22,
-    0 8px 18px rgba(6, 78, 59, 0.35),
-    inset 0 1px 0 rgba(167, 243, 208, 0.35);
-  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.4, 1);
-  border: 1px solid #059669;
+  border: 1px solid rgba(212, 179, 106, 0.55);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
-
 .btn-3d-emerald:hover {
-  background: linear-gradient(180deg, #059669 0%, #047857 100%);
+  background: rgba(212, 179, 106, 0.16);
+  color: #f4efe3;
   transform: translateY(-1px);
-  box-shadow: 
-    0 5px 0 #022c22,
-    0 12px 22px rgba(6, 78, 59, 0.45),
-    inset 0 1px 0 rgba(167, 243, 208, 0.5);
 }
-
-.btn-3d-emerald:active {
-  transform: translateY(3px);
-  box-shadow: 
-    0 1px 0 #022c22,
-    0 2px 4px rgba(0, 0, 0, 0.3),
-    inset 0 2px 2px rgba(0, 0, 0, 0.25);
-}
+.btn-3d-emerald:active { transform: translateY(0); }
 
 .btn-3d-white {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  color: #0f172a;
+  background: #f4efe3;
+  color: #0a0a09;
   font-weight: 700;
-  box-shadow: 
-    0 3px 0 #cbd5e1,
-    0 6px 14px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 #ffffff;
-  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.4, 1);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #d3cebf;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
+.btn-3d-white:hover { background: #ffffff; transform: translateY(-1px); }
+.btn-3d-white:active { transform: translateY(0); }
 
-.btn-3d-white:hover {
-  background: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 
-    0 4px 0 #cbd5e1,
-    0 8px 18px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #ffffff;
-}
-
-.btn-3d-white:active {
-  transform: translateY(2px);
-  box-shadow: 
-    0 1px 0 #cbd5e1,
-    0 2px 4px rgba(0, 0, 0, 0.04),
-    inset 0 1px 2px rgba(0, 0, 0, 0.06);
-}
-
-/* 3D Navigation Pills */
+/* Navigation pills */
 .nav-pill-3d {
-  transition: all 0.15s cubic-bezier(0.2, 0.8, 0.4, 1);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   border: 1px solid transparent;
 }
-
 .nav-pill-3d:hover {
-  background: rgba(4, 120, 87, 0.6);
-  transform: translateY(-1px);
-  box-shadow: 
-    0 3px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(52, 211, 153, 0.3);
+  background: rgba(212, 179, 106, 0.1);
+  border-color: rgba(212, 179, 106, 0.3);
 }
-
 .nav-pill-3d-active {
-  background: linear-gradient(180deg, #bef264 0%, #a3e635 100%) !important;
-  color: #022c22 !important;
+  background: #d4b36a !important;
+  color: #0a0a09 !important;
   font-weight: 800;
-  transform: translateY(-1px);
-  box-shadow: 
-    0 3px 0 #4d7c0f,
-    0 6px 12px rgba(101, 163, 13, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  border: 1px solid #84cc16 !important;
+  border: 1px solid #b8934a !important;
 }
 
-/* 3D Inset Container (e.g. search bars, odometer housing) */
 .inset-3d {
-  box-shadow: 
-    inset 0 2px 4px rgba(0, 0, 0, 0.12),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.05),
-    0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(212, 179, 106, 0.12);
 }
 
 .font-odometer {
@@ -239,28 +203,19 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Mechanical odometer reel style */
+/* Odometer reels: black glass with gold figures */
 .odometer-digit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 1.55rem;
   height: 2.25rem;
-  background: linear-gradient(180deg, #022c22 0%, #064e3b 40%, #047857 50%, #064e3b 60%, #011812 100%);
-  border: 1px solid rgba(167, 243, 208, 0.4);
-  box-shadow: 
-    inset 0 3px 5px rgba(0, 0, 0, 0.7),
-    inset 0 -2px 3px rgba(0, 0, 0, 0.5),
-    0 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  color: #ccfbf1;
+  background: linear-gradient(180deg, #050504 0%, #1a1813 50%, #050504 100%);
+  border: 1px solid rgba(212, 179, 106, 0.4);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  color: #e6cf94;
   font-weight: 800;
-  text-shadow: 0 0 8px rgba(167, 243, 208, 0.6);
+  text-shadow: 0 0 8px rgba(212, 179, 106, 0.5);
 }
-
-.odometer-digit.dimmed {
-  color: #064e3b;
-  text-shadow: none;
-  opacity: 0.4;
-}
-
+.odometer-digit.dimmed { color: #5a5242; text-shadow: none; opacity: 0.5; }
