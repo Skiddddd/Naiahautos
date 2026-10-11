@@ -29,6 +29,11 @@ export default function App() {
   const [auditModalOpen, setAuditModalOpen] = useState(false);
   const [currency, setCurrency] = useState<'NGN' | 'USD'>('NGN');
 
+  // Always start a new page at the top, whichever button opened it
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [activeTab]);
+
   React.useEffect(() => {
     if (activeTab === 'services') {
       setTimeout(() => {
@@ -65,7 +70,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-emerald-500/20 selection:text-emerald-900">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-emerald-500/20 selection:text-gold-300">
       
       {/* Primary Top Bar Navigation */}
       <Navbar
