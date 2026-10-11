@@ -19,7 +19,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 bg-slate-50 text-slate-800">
       
       {/* Header Hero: Deep forest green with lemon highlights */}
-      <div className="bg-gradient-to-b from-[#064E3B] to-[#043326] border border-emerald-800 text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-md">
+      <div className="bg-gradient-to-b from-[#0c2a20] to-[#08201a] border border-emerald-800 text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-md">
         <div className="inline-flex items-center gap-2 bg-emerald-800/80 border border-lime-400/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-lime-300">
           <ShieldCheck className="w-4 h-4 text-lime-400" />
           <span>Independent Pre-Purchase Diagnostic Service</span>
@@ -52,7 +52,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent("Hello Naiahautos, I need an urgent pre-purchase inspection in Lagos today.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto py-3.5 px-6 bg-[#022c22]/80 hover:bg-[#033c2e] text-emerald-100 hover:text-white font-bold text-xs rounded-xl border border-emerald-500/40 shadow-[0_3px_0_#011a14] active:translate-y-[2px] transition-all cursor-pointer flex items-center justify-center gap-2"
+            className="w-full sm:w-auto py-3.5 px-6 bg-[#0a0a09]/80 hover:bg-[#0a2a21] text-emerald-100 hover:text-white font-bold text-xs rounded-xl border border-emerald-500/40 shadow-[0_3px_0_#011a14] active:translate-y-[2px] transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
             <span>Request Instant Inspector Dispatch</span>
@@ -72,8 +72,8 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <TiltCard maxTilt={7} className="bg-white border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shadow-2xs">
+          <TiltCard maxTilt={7} className="bg-surface border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
+            <div className="w-10 h-10 rounded-xl bg-gold-400/10 text-gold-300 flex items-center justify-center font-bold shadow-2xs">
               01
             </div>
             <h3 className="text-base font-bold text-slate-900">OBD-II Computer Diagnostic Scan</h3>
@@ -82,8 +82,8 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             </p>
           </TiltCard>
 
-          <TiltCard maxTilt={7} className="bg-white border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shadow-2xs">
+          <TiltCard maxTilt={7} className="bg-surface border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
+            <div className="w-10 h-10 rounded-xl bg-gold-400/10 text-gold-300 flex items-center justify-center font-bold shadow-2xs">
               02
             </div>
             <h3 className="text-base font-bold text-slate-900">Chassis & Digital Paint Depth Scan</h3>
@@ -92,8 +92,8 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             </p>
           </TiltCard>
 
-          <TiltCard maxTilt={7} className="bg-white border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shadow-2xs">
+          <TiltCard maxTilt={7} className="bg-surface border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
+            <div className="w-10 h-10 rounded-xl bg-gold-400/10 text-gold-300 flex items-center justify-center font-bold shadow-2xs">
               03
             </div>
             <h3 className="text-base font-bold text-slate-900">Flood & Saltwater Immersion Audit</h3>
@@ -102,8 +102,8 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             </p>
           </TiltCard>
 
-          <TiltCard maxTilt={7} className="bg-white border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shadow-2xs">
+          <TiltCard maxTilt={7} className="bg-surface border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
+            <div className="w-10 h-10 rounded-xl bg-gold-400/10 text-gold-300 flex items-center justify-center font-bold shadow-2xs">
               04
             </div>
             <h3 className="text-base font-bold text-slate-900">Engine Load & Road Test</h3>
@@ -112,8 +112,8 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             </p>
           </TiltCard>
 
-          <TiltCard maxTilt={7} className="bg-white border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold shadow-2xs">
+          <TiltCard maxTilt={7} className="bg-surface border border-slate-200 rounded-3xl p-6 space-y-3 shadow-3d hover:shadow-3d-hover">
+            <div className="w-10 h-10 rounded-xl bg-gold-400/10 text-gold-300 flex items-center justify-center font-bold shadow-2xs">
               05
             </div>
             <h3 className="text-base font-bold text-slate-900">Nigeria Customs Paper Verification</h3>
@@ -122,7 +122,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             </p>
           </TiltCard>
 
-          <TiltCard maxTilt={7} className="bg-gradient-to-br from-[#064E3B] to-[#043326] text-white border border-emerald-700 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-[0_12px_24px_rgba(0,0,0,0.3)]">
+          <TiltCard maxTilt={7} className="bg-gradient-to-br from-[#0c2a20] to-[#08201a] text-white border border-gold-400 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-[0_12px_24px_rgba(0,0,0,0.3)]">
             <div className="space-y-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-lime-300">Rapid Delivery</span>
               <h3 className="text-base font-bold text-white">18-Page PDF Inspection Report</h3>
@@ -141,9 +141,9 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
       </div>
 
       {/* Interactive Sample Report Simulator */}
-      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 space-y-6 shadow-sm">
+      <div className="bg-surface border border-slate-200 rounded-3xl p-6 sm:p-10 space-y-6 shadow-sm">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+          <span className="text-xs font-bold uppercase tracking-wider text-gold-300">
             Interactive Report Preview
           </span>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mt-1">
@@ -159,7 +159,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
           <button
             onClick={() => setActiveReportTab('engine')}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
-              activeReportTab === 'engine' ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              activeReportTab === 'engine' ? 'bg-gold-400 hover:bg-gold-300 text-ink-950' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
             Engine & Transmission Scan
@@ -167,7 +167,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
           <button
             onClick={() => setActiveReportTab('frame')}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
-              activeReportTab === 'frame' ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              activeReportTab === 'frame' ? 'bg-gold-400 hover:bg-gold-300 text-ink-950' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
             Paint Depth & Chassis
@@ -175,7 +175,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
           <button
             onClick={() => setActiveReportTab('flood')}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
-              activeReportTab === 'flood' ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              activeReportTab === 'flood' ? 'bg-gold-400 hover:bg-gold-300 text-ink-950' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
             Flood Telemetry
@@ -183,7 +183,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
           <button
             onClick={() => setActiveReportTab('customs')}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
-              activeReportTab === 'customs' ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              activeReportTab === 'customs' ? 'bg-gold-400 hover:bg-gold-300 text-ink-950' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
             Customs SGD Verification
@@ -196,16 +196,16 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-sm">Computer Diagnostic Readout</span>
-                <span className="text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded text-[11px] font-mono font-bold">0 ACTIVE FAULTS</span>
+                <span className="text-gold-300 bg-gold-400/10 px-2 py-0.5 rounded text-[11px] font-mono font-bold">0 ACTIVE FAULTS</span>
               </div>
               <p className="text-slate-600">
                 OBD-II handshake successful. Long-term fuel trim at +1.4% (factory nominal). O2 sensors cycling actively between 0.1V - 0.9V. Transmission slip test recorded zero shift delay across all 8 forward gear ratios.
               </p>
-              <div className="bg-white p-3 rounded-lg border border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-3 text-slate-600 font-mono text-[11px]">
+              <div className="bg-surface p-3 rounded-lg border border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-3 text-slate-600 font-mono text-[11px]">
                 <div><span>RPM Idle:</span> <strong className="text-slate-900">680 RPM</strong></div>
                 <div><span>Coolant Temp:</span> <strong className="text-slate-900">91°C</strong></div>
-                <div><span>Oil Pressure:</span> <strong className="text-emerald-700">Normal</strong></div>
-                <div><span>Timing Variance:</span> <strong className="text-emerald-700">0.0°</strong></div>
+                <div><span>Oil Pressure:</span> <strong className="text-gold-300">Normal</strong></div>
+                <div><span>Timing Variance:</span> <strong className="text-gold-300">0.0°</strong></div>
               </div>
             </div>
           )}
@@ -214,7 +214,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-sm">Digital Paint Thickness Meter</span>
-                <span className="text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded text-[11px] font-mono font-bold">ALL PANELS FACTORY ORIGINAL</span>
+                <span className="text-gold-300 bg-gold-400/10 px-2 py-0.5 rounded text-[11px] font-mono font-bold">ALL PANELS FACTORY ORIGINAL</span>
               </div>
               <p className="text-slate-600">
                 Hood: 4.8 mils · Driver Door: 4.9 mils · Quarter Panels: 5.1 mils · Roof: 4.7 mils. No readings above 7.0 mils indicating zero bondo/filler repairs. Front crash bar spot welds factory original.
@@ -226,7 +226,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-sm">Waterline & Salt Corrosion Checks</span>
-                <span className="text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded text-[11px] font-mono font-bold">PASSED: NO FLOOD HISTORY</span>
+                <span className="text-gold-300 bg-gold-400/10 px-2 py-0.5 rounded text-[11px] font-mono font-bold">PASSED: NO FLOOD HISTORY</span>
               </div>
               <p className="text-slate-600">
                 Inspected under carpet floor mats, fuse module pins, and seat anchor bolts. Zero oxidation, zero water silt line, fresh factory interior aroma without masking perfumes.
@@ -238,7 +238,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 text-sm">Nigeria Customs Service Paper Audit</span>
-                <span className="text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded text-[11px] font-mono font-bold">100% AUTHENTIC DUTY PAID</span>
+                <span className="text-gold-300 bg-gold-400/10 px-2 py-0.5 rounded text-[11px] font-mono font-bold">100% AUTHENTIC DUTY PAID</span>
               </div>
               <p className="text-slate-600">
                 Single Goods Declaration (SGD) verified on Nigeria Customs Portal. Correct valuation band applied, clearing agent duty stamp legitimate, port of entry: Tin Can Island Port, Lagos.
