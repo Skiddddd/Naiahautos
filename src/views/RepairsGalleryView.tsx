@@ -49,7 +49,7 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
     <div className="min-h-screen bg-slate-100 text-slate-800 pb-24">
       
       {/* Top Header */}
-      <section className="bg-gradient-to-b from-[#064E3B] to-[#043326] text-white py-10 sm:py-14 border-b border-emerald-800 shadow-sm">
+      <section className="bg-gradient-to-b from-[#0c2a20] to-[#08201a] text-white py-10 sm:py-14 border-b border-emerald-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             
@@ -81,7 +81,7 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
       </section>
 
       {/* Filter Bar */}
-      <section className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs py-3">
+      <section className="sticky top-20 z-30 bg-surface/95 backdrop-blur-md border-b border-slate-200 shadow-xs py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap gap-3">
           
           <div className="flex items-center gap-2 p-1 bg-slate-100 rounded-xl border border-slate-200">
@@ -89,7 +89,7 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
               onClick={() => setActiveMediaFilter('all')}
               className={`py-1.5 px-4 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                 activeMediaFilter === 'all'
-                  ? 'bg-emerald-800 text-white shadow-xs'
+                  ? 'bg-gold-400 hover:bg-gold-300 text-ink-950 shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -100,7 +100,7 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
               onClick={() => setActiveMediaFilter('video')}
               className={`py-1.5 px-3.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                 activeMediaFilter === 'video'
-                  ? 'bg-emerald-800 text-white shadow-xs'
+                  ? 'bg-gold-400 hover:bg-gold-300 text-ink-950 shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -112,17 +112,17 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
               onClick={() => setActiveMediaFilter('photo')}
               className={`py-1.5 px-3.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                 activeMediaFilter === 'photo'
-                  ? 'bg-emerald-800 text-white shadow-xs'
+                  ? 'bg-gold-400 hover:bg-gold-300 text-ink-950 shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <Camera className="w-3.5 h-3.5 text-emerald-600" />
+              <Camera className="w-3.5 h-3.5 text-gold-300" />
               <span>({repairs.filter(r => r.mediaType === 'photo').length})</span>
             </button>
           </div>
 
           <div className="text-xs text-slate-500 hidden sm:flex items-center gap-1">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <ShieldCheck className="w-4 h-4 text-gold-300" />
             <span>Naiahautos Verified Workshop Quality</span>
           </div>
 
@@ -133,12 +133,12 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
 
         {filteredRepairs.length === 0 ? (
-          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-sm max-w-sm mx-auto my-12 space-y-3">
+          <div className="bg-surface rounded-3xl p-12 text-center border border-slate-200 shadow-sm max-w-sm mx-auto my-12 space-y-3">
             <Camera className="w-10 h-10 text-slate-300 mx-auto" />
             <div className="text-sm font-bold text-slate-700">No media in this view</div>
             <button
               onClick={() => setActiveMediaFilter('all')}
-              className="py-2 px-4 rounded-xl bg-emerald-800 text-white text-xs font-bold cursor-pointer"
+              className="py-2 px-4 rounded-xl bg-gold-400 hover:bg-gold-300 text-ink-950 text-xs font-bold cursor-pointer"
             >
               Show All
             </button>
@@ -151,7 +151,7 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
               return (
                 <div
                   key={item.id}
-                  className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-2 border-white bg-slate-900 transition-all duration-300 cursor-pointer"
+                  className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border-2 border-gold-400/40 bg-black transition-all duration-300 cursor-pointer"
                   onClick={() => setSelectedRepair(item)}
                 >
                   {/* Media Element */}
@@ -224,7 +224,7 @@ export const RepairsGalleryView: React.FC<RepairsGalleryViewProps> = () => {
             <div className="w-full flex items-center justify-end pb-3 text-white">
               <button
                 onClick={() => setSelectedRepair(null)}
-                className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="w-9 h-9 rounded-full bg-surface/20 hover:bg-surface/30 text-white flex items-center justify-center transition-colors cursor-pointer"
                 title="Close"
               >
                 <X className="w-5 h-5" />
