@@ -58,7 +58,7 @@ export const ContactView: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 bg-slate-50 text-slate-800">
       {/* Header */}
       <div>
-        <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+        <span className="text-xs font-bold uppercase tracking-wider text-gold-300">
           Get in Touch
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
@@ -71,7 +71,7 @@ export const ContactView: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Contact Info Card: Clean White Card */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+        <div className="lg:col-span-5 bg-surface border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
           <div className="space-y-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight">
               Naiahautos Headquarters
@@ -84,7 +84,7 @@ export const ContactView: React.FC = () => {
           <div className="space-y-4 text-xs pt-2">
             {/* Address */}
             <div className="flex items-start gap-3.5 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center shrink-0">
                 <MapPin className="w-4 h-4" />
               </div>
               <div>
@@ -98,12 +98,12 @@ export const ContactView: React.FC = () => {
 
             {/* Direct Phone */}
             <div className="flex items-start gap-3.5 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center shrink-0">
                 <Phone className="w-4 h-4" />
               </div>
               <div>
                 <span className="text-slate-500 block text-[11px] uppercase font-semibold">Direct Telephone Line</span>
-                <a href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`} className="text-slate-900 font-bold text-sm mt-0.5 block hover:text-emerald-700 font-mono">
+                <a href={`tel:${DEALERSHIP_CONFIG.phoneNumberRaw}`} className="text-slate-900 font-bold text-sm mt-0.5 block hover:text-gold-300 font-mono">
                   {DEALERSHIP_CONFIG.phoneDisplay}
                 </a>
                 <span className="text-slate-500 text-[11px]">Showroom desk & voice switchboard</span>
@@ -112,7 +112,7 @@ export const ContactView: React.FC = () => {
 
             {/* WhatsApp */}
             <div className="flex items-start gap-3.5 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center shrink-0">
                 <WhatsAppIcon className="w-4 h-4" />
               </div>
               <div>
@@ -121,7 +121,7 @@ export const ContactView: React.FC = () => {
                   href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-emerald-700 font-bold text-sm mt-0.5 block hover:underline font-mono"
+                  className="text-gold-300 font-bold text-sm mt-0.5 block hover:underline font-mono"
                 >
                   +{DEALERSHIP_CONFIG.whatsappNumber}
                 </a>
@@ -131,14 +131,14 @@ export const ContactView: React.FC = () => {
 
             {/* Email */}
             <div className="flex items-start gap-3.5 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center shrink-0">
                 <Mail className="w-4 h-4" />
               </div>
               <div>
                 <span className="text-slate-500 block text-[11px] uppercase font-semibold">Official Email Address</span>
                 <a 
                   href={`mailto:${DEALERSHIP_CONFIG.email}`} 
-                  className="text-emerald-700 font-bold text-sm mt-0.5 block hover:underline"
+                  className="text-gold-300 font-bold text-sm mt-0.5 block hover:underline"
                 >
                   {DEALERSHIP_CONFIG.email}
                 </a>
@@ -148,7 +148,7 @@ export const ContactView: React.FC = () => {
 
             {/* Operating Hours */}
             <div className="flex items-start gap-3.5 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-gold-400/10 text-gold-300 flex items-center justify-center shrink-0">
                 <Clock className="w-4 h-4" />
               </div>
               <div className="space-y-1">
@@ -162,7 +162,7 @@ export const ContactView: React.FC = () => {
         </div>
 
         {/* Contact Form: Clean White Card */}
-        <div className="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <div className="lg:col-span-7 bg-surface border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
           <div className="mb-6 space-y-1">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight">
               Send an Inquiry
@@ -174,7 +174,7 @@ export const ContactView: React.FC = () => {
 
           {submitted ? (
             <div className="text-center py-10 space-y-4">
-              <div className="w-14 h-14 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto border border-emerald-300">
+              <div className="w-14 h-14 bg-gold-400/10 text-gold-300 rounded-full flex items-center justify-center mx-auto border border-gold-400/30">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
               <h3 className="text-lg font-bold text-slate-900">Inquiry Dispatched Successfully</h3>
@@ -184,16 +184,16 @@ export const ContactView: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={handleForwardWhatsApp}
-                  className="py-3 px-5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow"
+                  className="py-3 px-5 bg-gold-400 hover:bg-gold-300 text-ink-950 text-xs font-semibold rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   Open WhatsApp Chat (+234 806 416 0748)
                 </button>
                 <button
                   onClick={handleForwardEmail}
-                  className="py-3 px-5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                  className="py-3 px-5 bg-surface border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                 >
-                  <Mail className="w-4 h-4 text-emerald-700" />
+                  <Mail className="w-4 h-4 text-gold-300" />
                   <span>Send via Email</span>
                 </button>
                 <button
@@ -217,7 +217,7 @@ export const ContactView: React.FC = () => {
                     placeholder="e.g. Oladipo Johnson"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400"
                   />
                 </div>
 
@@ -231,7 +231,7 @@ export const ContactView: React.FC = () => {
                     placeholder="e.g. +234 803 123 4567"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400"
                   />
                 </div>
               </div>
@@ -247,7 +247,7 @@ export const ContactView: React.FC = () => {
                     placeholder="e.g. oladipo@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400"
                   />
                 </div>
 
@@ -258,7 +258,7 @@ export const ContactView: React.FC = () => {
                   <select
                     value={inquiryType}
                     onChange={(e) => setInquiryType(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-emerald-600 font-medium"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-gold-400 font-medium"
                   >
                     <option value="vehicle-purchase">Vehicle Showroom Purchase</option>
                     <option value="inspection-booking">Book Pre-Purchase 200-Pt Inspection</option>
@@ -279,14 +279,14 @@ export const ContactView: React.FC = () => {
                   placeholder="Provide details about the vehicle or service you require..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-gold-400 resize-none"
                 />
               </div>
 
               <div className="pt-2 space-y-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-4 bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-colors cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 bg-gold-400 hover:bg-gold-300 text-ink-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-colors cursor-pointer flex items-center justify-center gap-2"
                 >
                   <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
                   <span>Send Inquiry to WhatsApp (08064160748)</span>
