@@ -29,9 +29,13 @@ export default function App() {
   const [auditModalOpen, setAuditModalOpen] = useState(false);
   const [currency, setCurrency] = useState<'NGN' | 'USD'>('NGN');
 
-  // Always start a new page at the top, whichever button opened it
+  // Always start a new page at the top, and close any open popup (booking, audit, vehicle)
+  // so the page really changes when a navigation option is pressed
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
+    setBookingModalOpen(false);
+    setAuditModalOpen(false);
+    setSelectedVehicle(null);
   }, [activeTab]);
 
   React.useEffect(() => {
