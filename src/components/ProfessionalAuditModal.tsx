@@ -73,7 +73,7 @@ export const ProfessionalAuditModal: React.FC<ProfessionalAuditModalProps> = ({
               <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
                 Professionalism & Standards Audit: Naiahautos
               </h2>
-              <p className="text-xs text-emerald-100/90">
+              <p className="text-xs text-slate-700">
                 Independent verification against executive automotive digital dealership benchmarks.
               </p>
             </div>

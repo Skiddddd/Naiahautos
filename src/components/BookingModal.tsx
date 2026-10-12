@@ -200,7 +200,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     onClick={() => setInspectionLocation('mobile')}
                     className={`p-3 rounded-lg border text-left cursor-pointer transition-colors ${
                       inspectionLocation === 'mobile'
-                        ? 'border-gold-400 bg-gold-400/10 text-emerald-950 shadow-sm'
+                        ? 'border-gold-400 bg-gold-400/10 text-gold-300 shadow-sm'
                         : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                     }`}
                   >
@@ -213,7 +213,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     onClick={() => setInspectionLocation('hub')}
                     className={`p-3 rounded-lg border text-left cursor-pointer transition-colors ${
                       inspectionLocation === 'hub'
-                        ? 'border-gold-400 bg-gold-400/10 text-emerald-950 shadow-sm'
+                        ? 'border-gold-400 bg-gold-400/10 text-gold-300 shadow-sm'
                         : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                     }`}
                   >

@@ -131,7 +131,7 @@ export const WhatsAppFloatingButton: React.FC<WhatsAppFloatingButtonProps> = ({
                   <Shield className="w-3.5 h-3.5 text-gold-300 shrink-0" />
                   Direct Verified Showroom Channel
                 </div>
-                <p className="text-emerald-800/80 leading-relaxed">
+                <p className="text-gold-300/80 leading-relaxed">
                   Chat directly with our showroom sales & inspection directors on WhatsApp. Custom duty papers & walk-around videos available.
                 </p>
               </div>
