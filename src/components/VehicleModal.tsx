@@ -48,7 +48,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
   const monthlyPayment = (principal * monthlyRate * Math.pow(1 + monthlyRate, loanMonths)) / (Math.pow(1 + monthlyRate, loanMonths) - 1);
 
   const handleWhatsAppInquiry = () => {
-    const priceText = currency === 'NGN' ? `NGN ${vehicle.priceNgn.toLocaleString()}` : `$${vehicle.priceUsd.toLocaleString()}`;
+    const priceText = vehicle.priceNgn <= 0 ? 'price on request' : currency === 'NGN' ? `NGN ${vehicle.priceNgn.toLocaleString()}` : `$${vehicle.priceUsd.toLocaleString()}`;
     const text = `Hello Naiahautos, I am interested in purchasing the ${vehicle.year} ${vehicle.make} ${vehicle.model} (${vehicle.vin ? `VIN: ${vehicle.vin}, ` : ''}Listed at ${priceText}). Is it available for showroom inspection?`;
     window.open(`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   };
@@ -134,7 +134,9 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
               <div>
                 <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Showroom Price</span>
                 <div className="text-3xl font-extrabold text-gold-300 tracking-tight mt-0.5 font-mono inline-flex items-center gap-0.5">
-                  {currency === 'NGN' ? (
+                  {vehicle.priceNgn <= 0 ? (
+                    'Price on request'
+                  ) : currency === 'NGN' ? (
                     <>
                       <Naira />
                       <span>{vehicle.priceNgn.toLocaleString()}</span>
@@ -204,7 +206,7 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
             >
               <span>200-Point Inspection Score</span>
               <span className="bg-gold-400/10 text-gold-300 text-xs px-2 py-0.5 rounded-full font-bold">
-                {vehicle.inspectionScore}/100
+                {vehicle.inspectionScore > 0 ? `${vehicle.inspectionScore}/100` : 'Pending'}
               </span>
             </button>
             <button
@@ -287,10 +289,10 @@ export const VehicleModal: React.FC<VehicleModalProps> = ({
               <div className="bg-gold-400/10 border border-gold-400/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-gold-400 hover:bg-gold-300 text-ink-950 flex items-center justify-center font-bold text-lg font-mono">
-                    {vehicle.inspectionScore}
+                    {vehicle.inspectionScore > 0 ? vehicle.inspectionScore : '–'}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Naiahautos Verified Grade A+</h4>
+                    <h4 className="text-sm font-bold text-slate-900">{vehicle.inspectionScore > 0 ? 'Naiahautos Verified Grade A+' : 'Inspection report pending'}</h4>
                     <p className="text-xs text-slate-600">
                       Zero flood damage, verified chassis rails, computerized engine ECU diagnostic passed.
                     </p>
