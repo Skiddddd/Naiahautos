@@ -275,7 +275,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
       <div className="bg-gradient-to-r from-[#14141b] to-[#0e0e13] text-white border border-emerald-700/60 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="text-lg font-bold text-white">Can't Find Your Desired Specification?</h3>
-          <p className="text-xs text-emerald-100 max-w-xl">
+          <p className="text-xs text-slate-700 max-w-xl">
             We provide direct vehicle importation from Copart, Manheim, and IAAI with custom trim levels, exterior paint colors, and verified accident histories.
           </p>
         </div>

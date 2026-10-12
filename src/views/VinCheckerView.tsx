@@ -68,7 +68,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           Live 17-Digit VIN Decoder & Specification Checker
         </h1>
 
-        <p className="text-xs sm:text-base text-emerald-100/90 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-xs sm:text-base text-slate-700 leading-relaxed max-w-2xl mx-auto">
           Verify authentic factory specifications, assembly plant origins, displacement, engine cylinders, transmission, and active safety systems directly from manufacturer homologation archives before buying in Nigeria.
         </p>
 
@@ -117,7 +117,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
 
           {/* Quick Real Samples */}
           <div className="pt-3 flex flex-wrap items-center justify-center gap-1.5 text-xs text-emerald-200">
-            <span className="text-[11px] text-emerald-300/80 font-bold">Try Sample VINs:</span>
+            <span className="text-[11px] text-slate-600 font-bold">Try Sample VINs:</span>
             {SAMPLE_VINS.map((sample, idx) => (
               <button
                 key={idx}
@@ -125,7 +125,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
                   setVinInput(sample.vin);
                   handleDecode(sample.vin);
                 }}
-                className="px-2.5 py-1 bg-[#07070a]/80 hover:bg-[#0e0e13] hover:text-lime-300 border border-emerald-500/40 rounded-lg text-[11px] font-mono font-bold text-emerald-100 shadow-[0_2px_0_#011a14] active:translate-y-[1px] transition-all cursor-pointer"
+                className="px-2.5 py-1 bg-[#07070a]/80 hover:bg-[#0e0e13] hover:text-lime-300 border border-emerald-500/40 rounded-lg text-[11px] font-mono font-bold text-slate-700 shadow-[0_2px_0_#011a14] active:translate-y-[1px] transition-all cursor-pointer"
                 title={`${sample.label} (${sample.category})`}
               >
                 {sample.label.split(' ')[0]} {sample.label.split(' ')[1]}
@@ -410,7 +410,7 @@ export const VinCheckerView: React.FC<VinCheckerViewProps> = ({ onBookInspection
           <div className="bg-gradient-to-r from-[#14141b] to-[#0e0e13] text-white border border-emerald-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
             <div className="space-y-1.5 text-center md:text-left">
               <h4 className="text-lg font-bold text-white">Next Step: Physical Inspection in Lagos</h4>
-              <p className="text-xs text-emerald-100 max-w-xl">
+              <p className="text-xs text-slate-700 max-w-xl">
                 While a VIN decode verifies factory build data, it cannot reveal accident coverups or cleared engine codes in Nigeria. Dispatch a Naiahautos master inspector to physically inspect this car before buying.
               </p>
             </div>

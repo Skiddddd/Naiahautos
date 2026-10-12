@@ -29,7 +29,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
           Never Buy a Car in Nigeria Blindly.
         </h1>
 
-        <p className="text-xs sm:text-base text-emerald-100/90 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-xs sm:text-base text-slate-700 leading-relaxed max-w-2xl mx-auto">
           Over 65% of Tokunbo cars sold in Nigeria conceal previous collision frame damage, flood immersion from salvage yards, or cleared diagnostic trouble codes. Our 200-point inspection protects your hard-earned money.
         </p>
 
@@ -52,7 +52,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             href={`https://wa.me/${DEALERSHIP_CONFIG.whatsappNumber}?text=${encodeURIComponent("Hello Naiahautos, I need an urgent pre-purchase inspection in Lagos today.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto py-3.5 px-6 bg-[#07070a]/80 hover:bg-[#0e0e13] text-emerald-100 hover:text-white font-bold text-xs rounded-xl border border-emerald-500/40 shadow-[0_3px_0_#011a14] active:translate-y-[2px] transition-all cursor-pointer flex items-center justify-center gap-2"
+            className="w-full sm:w-auto py-3.5 px-6 bg-[#07070a]/80 hover:bg-[#0e0e13] text-slate-700 hover:text-white font-bold text-xs rounded-xl border border-emerald-500/40 shadow-[0_3px_0_#011a14] active:translate-y-[2px] transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current text-lime-300" />
             <span>Request Instant Inspector Dispatch</span>
@@ -126,7 +126,7 @@ export const InspectionView: React.FC<InspectionViewProps> = ({ onBookInspection
             <div className="space-y-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-lime-300">Rapid Delivery</span>
               <h3 className="text-base font-bold text-white">18-Page PDF Inspection Report</h3>
-              <p className="text-xs text-emerald-100/90">
+              <p className="text-xs text-slate-700">
                 Delivered straight to your WhatsApp and email within 2 hours of completion with high-resolution photos and a definitive BUY or WALK verdict.
               </p>
             </div>

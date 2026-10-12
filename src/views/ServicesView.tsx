@@ -37,7 +37,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onBookService, curre
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
               Specialized Auto Diagnostics, Sourcing & Vehicle Engineering
             </h1>
-            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed max-w-xl">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed max-w-xl">
               Equipped with dealership-level diagnostic scanners (Mercedes Xentry, BMW ISTA, Toyota Techstream) across our Lekki, Ikeja, and Benin City facilities. We safeguard your automotive investments across Nigeria.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
