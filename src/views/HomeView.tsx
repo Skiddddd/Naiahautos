@@ -48,7 +48,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectVehicle, onBookInspe
   const types = Array.from(new Set(VEHICLES_DATA.map((v) => v.bodyType)));
   const inspection = AUTO_SERVICES_DATA.find((s) => s.id === 'pre-purchase-inspection');
 
-  const money = (ngn: number, usd: number) => (currency === 'NGN' ? `₦${ngn.toLocaleString('en-NG')}` : `$${usd.toLocaleString('en-US')}`);
+  const money = (ngn: number, usd: number) => (ngn <= 0 ? 'Price on request' : currency === 'NGN' ? `₦${ngn.toLocaleString('en-NG')}` : `$${usd.toLocaleString('en-US')}`);
 
   useEffect(() => { clearLegacyPhotoSettings().catch(() => {}); }, []);
 
@@ -128,56 +128,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectVehicle, onBookInspe
         </div>
       </div>
 
-      {/* COLLECTION */}
-      <section id="cars">
-        <div className="wrap">
-          <div className="head">
-            <div>
-              <div className="eyebrow rv">The Collection</div>
-              <h2 className="rv d1">Curated for the<br /><em className="gold">discerning</em> driver.</h2>
-            </div>
-            <div className="filters rv d2">
-              <button className={filter === 'all' ? 'on' : ''} onClick={() => setFilter('all')}>All</button>
-              {types.map((t) => (
-                <button key={t} className={filter === t ? 'on' : ''} onClick={() => setFilter(t)}>{t}</button>
-              ))}
-            </div>
-          </div>
-          <div className="cars">
-            {VEHICLES_DATA.map((v, i) => (
-              <div
-                key={v.id}
-                role="button"
-                tabIndex={0}
-                className={`car rv d${i % 3}`}
-                style={{ display: filter === 'all' || filter === v.bodyType ? '' : 'none' }}
-                onClick={() => onSelectVehicle(v)}
-                onKeyDown={(e) => e.key === 'Enter' && onSelectVehicle(v)}
-              >
-                <div className="car-img">
-                  <img className="bgimg" src={v.imageUrl} alt="" aria-hidden="true" />
-                  <img className="fgimg" src={v.imageUrl} alt={v.name} />
-                  <span className="badge">{v.customsCleared ? '✦ Customs Cleared' : `✦ ${v.status}`}</span>
-                </div>
-                <div className="car-body">
-                  <small>{v.year} · {v.make}</small>
-                  <h3>{modelName(v)}</h3>
-                  <div className="specs">
-                    <div>Mileage<b>{v.mileageKm > 0 ? `${v.mileageKm.toLocaleString()} km` : 'On request'}</b></div>
-                    <div>Engine<b>{v.engine}</b></div>
-                    <div>Gearbox<b>{v.transmission}</b></div>
-                  </div>
-                  <div className="car-foot">
-                    <span className="price gold">{money(v.priceNgn, v.priceUsd)}</span>
-                    <span className="arrow">→</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SERVICES */}
       <section id="services" className="services">
         <div className="wrap">
@@ -241,6 +191,56 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectVehicle, onBookInspe
             <a className="btn btn-gold rv" onClick={onBookInspection}>
               Book Inspection{inspection ? ` · From ${money(inspection.basePriceNgn, inspection.basePriceUsd)}` : ''} <span>→</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* COLLECTION */}
+      <section id="cars">
+        <div className="wrap">
+          <div className="head">
+            <div>
+              <div className="eyebrow rv">The Collection</div>
+              <h2 className="rv d1">Curated for the<br /><em className="gold">discerning</em> driver.</h2>
+            </div>
+            <div className="filters rv d2">
+              <button className={filter === 'all' ? 'on' : ''} onClick={() => setFilter('all')}>All</button>
+              {types.map((t) => (
+                <button key={t} className={filter === t ? 'on' : ''} onClick={() => setFilter(t)}>{t}</button>
+              ))}
+            </div>
+          </div>
+          <div className="cars">
+            {VEHICLES_DATA.map((v, i) => (
+              <div
+                key={v.id}
+                role="button"
+                tabIndex={0}
+                className={`car rv d${i % 3}`}
+                style={{ display: filter === 'all' || filter === v.bodyType ? '' : 'none' }}
+                onClick={() => onSelectVehicle(v)}
+                onKeyDown={(e) => e.key === 'Enter' && onSelectVehicle(v)}
+              >
+                <div className="car-img">
+                  <img className="bgimg" src={v.imageUrl} alt="" aria-hidden="true" />
+                  <img className="fgimg" src={v.imageUrl} alt={v.name} />
+                  <span className="badge">{v.customsCleared ? '✦ Customs Cleared' : `✦ ${v.status}`}</span>
+                </div>
+                <div className="car-body">
+                  <small>{v.year} · {v.make}</small>
+                  <h3>{modelName(v)}</h3>
+                  <div className="specs">
+                    <div>Mileage<b>{v.mileageKm > 0 ? `${v.mileageKm.toLocaleString()} km` : 'On request'}</b></div>
+                    <div>Engine<b>{v.engine}</b></div>
+                    <div>Gearbox<b>{v.transmission}</b></div>
+                  </div>
+                  <div className="car-foot">
+                    <span className="price gold">{money(v.priceNgn, v.priceUsd)}</span>
+                    <span className="arrow">→</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

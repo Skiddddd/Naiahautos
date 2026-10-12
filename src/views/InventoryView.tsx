@@ -203,7 +203,7 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
                     className="absolute top-3 right-3 bg-[#14141b] text-lime-300 px-2.5 py-0.5 rounded-xl text-[11px] font-mono font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)] border border-emerald-700/60"
                     style={{ transform: 'translateZ(26px)' }}
                   >
-                    Score: {car.inspectionScore}/100
+                    {car.inspectionScore > 0 ? `Score: ${car.inspectionScore}/100` : 'Inspection pending'}
                   </div>
 
                   {car.vin && (
@@ -243,7 +243,9 @@ export const InventoryView: React.FC<InventoryViewProps> = ({
                     <div>
                       <span className="text-[10px] text-slate-400 block uppercase font-bold">Showroom Price</span>
                       <span className="text-xl font-black text-gold-300 font-mono inline-flex items-center gap-0.5">
-                        {currency === 'NGN' ? (
+                        {car.priceNgn <= 0 ? (
+                          'Price on request'
+                        ) : currency === 'NGN' ? (
                           <>
                             <Naira />
                             <span>{(car.priceNgn / 1000000).toFixed(1)}M</span>
