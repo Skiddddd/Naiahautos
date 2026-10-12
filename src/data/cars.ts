@@ -1,3 +1,12 @@
+import camry2011Front from '@/src/assets/images/camry2011_front.jpg';
+import camry2011Side from '@/src/assets/images/camry2011_side.jpg';
+import camry2011Rear from '@/src/assets/images/camry2011_rear.jpg';
+import camry2011Odometer from '@/src/assets/images/camry2011_odometer.jpg';
+import camry2011Dashboard from '@/src/assets/images/camry2011_dashboard.jpg';
+import camry2011Trunk from '@/src/assets/images/camry2011_trunk.jpg';
+import camry2011RearSeats from '@/src/assets/images/camry2011_rear_seats.jpg';
+import camry2011Engine from '@/src/assets/images/camry2011_engine.jpg';
+import camry2011VinLabel from '@/src/assets/images/camry2011_vin_label.jpg';
 import rx350Front from '@/src/assets/images/rx350_front.jpg';
 import rx350Dashboard from '@/src/assets/images/rx350_dashboard.jpg';
 import rx350FrontInterior from '@/src/assets/images/rx350_front_interior.jpg';
@@ -79,6 +88,50 @@ export interface Vehicle {
 }
 
 export const VEHICLES_DATA: Vehicle[] = [
+  {
+    id: 'car-camry-2011',
+    name: '2011 Toyota Camry SE',
+    make: 'Toyota',
+    model: 'Camry SE',
+    year: 2011,
+    priceNgn: 11000000,
+    priceUsd: 7400, // same exchange rate as the other cars (about N1,490 per $)
+    mileageKm: 0, // 0 shows "On request"
+    bodyType: 'Sedan',
+    fuelType: 'Petrol',
+    transmission: 'Automatic',
+    engine: '2.5L 4-Cylinder',
+    drivetrain: 'FWD',
+    color: 'Grey',
+    interiorColor: 'Black Cloth',
+    vin: '4T1BF3EK7BU204143',
+    status: 'Available',
+    condition: 'Foreign Used (Tokunbo)',
+    location: 'Showroom (Lekki, Lagos)',
+    inspectionScore: 98,
+    imageUrl: camry2011Front,
+    additionalImages: [
+      camry2011Side,
+      camry2011Rear,
+      camry2011Odometer,
+      camry2011Dashboard,
+      camry2011Trunk,
+      camry2011RearSeats,
+      camry2011Engine,
+      camry2011VinLabel
+    ],
+    keyFeatures: [
+      '2.5L 4-Cylinder Engine',
+      'Automatic Transmission',
+      'SE Sport Trim with Rear Spoiler',
+      'Touchscreen Head Unit with Reverse Camera',
+      '5-Spoke Alloy Wheels',
+      'Cloth Interior',
+      'Foreign Used (Tokunbo)'
+    ],
+    customsCleared: true,
+    featured: true
+  },
   {
     id: 'car-gle350',
     name: '2014 Mercedes-Benz GLE 350 4MATIC',
